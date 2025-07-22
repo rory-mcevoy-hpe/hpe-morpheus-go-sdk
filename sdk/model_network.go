@@ -99,7 +99,7 @@ type Network struct {
 	Config                  *ListNetworks200ResponseAllOfNetworksInnerConfig             `json:"config,omitempty"`
 	Tenants                 []GetAlerts200ResponseAllOfCheckGroupsInnerInstance          `json:"tenants,omitempty"`
 	ResourcePermission      *ListNetworks200ResponseAllOfNetworksInnerResourcePermission `json:"resourcePermission,omitempty"`
-	AdditionalProperties    map[string]interface{}
+	AdditionalProperties    map[string]interface{}                                       `json:",remain"`
 }
 
 type _Network Network
@@ -2780,124 +2780,7 @@ func (o Network) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 func (o *Network) UnmarshalJSON(data []byte) (err error) {
-	varNetwork := _Network{}
-
-	err = json.Unmarshal(data, &varNetwork)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Network(varNetwork)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "name")
-		delete(additionalProperties, "displayName")
-		delete(additionalProperties, "labels")
-		delete(additionalProperties, "group")
-		delete(additionalProperties, "zone")
-		delete(additionalProperties, "type")
-		delete(additionalProperties, "owner")
-		delete(additionalProperties, "code")
-		delete(additionalProperties, "ipv4Enabled")
-		delete(additionalProperties, "ipv6Enabled")
-		delete(additionalProperties, "category")
-		delete(additionalProperties, "interfaceName")
-		delete(additionalProperties, "bridgeName")
-		delete(additionalProperties, "bridgeInterface")
-		delete(additionalProperties, "description")
-		delete(additionalProperties, "externalId")
-		delete(additionalProperties, "internalId")
-		delete(additionalProperties, "uniqueId")
-		delete(additionalProperties, "externalType")
-		delete(additionalProperties, "refUrl")
-		delete(additionalProperties, "refType")
-		delete(additionalProperties, "refId")
-		delete(additionalProperties, "vlanId")
-		delete(additionalProperties, "vswitchName")
-		delete(additionalProperties, "dhcpServer")
-		delete(additionalProperties, "dhcpIp")
-		delete(additionalProperties, "dhcpServerIPv6")
-		delete(additionalProperties, "gateway")
-		delete(additionalProperties, "netmask")
-		delete(additionalProperties, "broadcast")
-		delete(additionalProperties, "subnetAddress")
-		delete(additionalProperties, "dnsPrimary")
-		delete(additionalProperties, "dnsSecondary")
-		delete(additionalProperties, "cidr")
-		delete(additionalProperties, "gatewayIPv6")
-		delete(additionalProperties, "netmaskIPv6")
-		delete(additionalProperties, "dnsPrimaryIPv6")
-		delete(additionalProperties, "dnsSecondaryIPv6")
-		delete(additionalProperties, "cidrIPv6")
-		delete(additionalProperties, "tftpServer")
-		delete(additionalProperties, "bootFile")
-		delete(additionalProperties, "switchId")
-		delete(additionalProperties, "fabricId")
-		delete(additionalProperties, "networkRole")
-		delete(additionalProperties, "status")
-		delete(additionalProperties, "availabilityZone")
-		delete(additionalProperties, "pool")
-		delete(additionalProperties, "poolIPv6")
-		delete(additionalProperties, "networkProxy")
-		delete(additionalProperties, "networkDomain")
-		delete(additionalProperties, "searchDomains")
-		delete(additionalProperties, "prefixLength")
-		delete(additionalProperties, "visibility")
-		delete(additionalProperties, "enableAdmin")
-		delete(additionalProperties, "active")
-		delete(additionalProperties, "defaultNetwork")
-		delete(additionalProperties, "assignPublicIp")
-		delete(additionalProperties, "noProxy")
-		delete(additionalProperties, "applianceUrlProxyBypass")
-		delete(additionalProperties, "zonePool")
-		delete(additionalProperties, "allowStaticOverride")
-		delete(additionalProperties, "config")
-		delete(additionalProperties, "tenants")
-		delete(additionalProperties, "resourcePermission")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-type NullableNetwork struct {
-	value *Network
-	isSet bool
-}
-
-func (v NullableNetwork) Get() *Network {
-	return v.value
-}
-
-func (v *NullableNetwork) Set(val *Network) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableNetwork) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableNetwork) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableNetwork(val *Network) *NullableNetwork {
-	return &NullableNetwork{value: val, isSet: true}
-}
-
-func (v NullableNetwork) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableNetwork) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
+	return decode(data, &o)
 }
 
 // - model_simple.mustache
