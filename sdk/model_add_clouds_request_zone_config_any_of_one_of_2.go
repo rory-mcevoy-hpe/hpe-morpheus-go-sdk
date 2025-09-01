@@ -18,11 +18,12 @@ import (
 // checks if the AddCloudsRequestZoneConfigAnyOfOneOf2 type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AddCloudsRequestZoneConfigAnyOfOneOf2{}
 
-// AddCloudsRequestZoneConfigAnyOfOneOf2 Standard Cloud
+// AddCloudsRequestZoneConfigAnyOfOneOf2 HVM Cloud
 type AddCloudsRequestZoneConfigAnyOfOneOf2 struct {
 	// Certificate provider
-	CertificateProvider        *string                `json:"certificateProvider,omitempty"`
-	EnableNetworkTypeSelection NullableString         `json:"enableNetworkTypeSelection,omitempty"`
+	CertificateProvider *string `json:"certificateProvider,omitempty"`
+	// Enable network type selection
+	EnableNetworkTypeSelection *bool                  `json:"enableNetworkTypeSelection,omitempty"`
 	AdditionalProperties       map[string]interface{} `json:",remain"`
 }
 
@@ -34,8 +35,6 @@ type _AddCloudsRequestZoneConfigAnyOfOneOf2 AddCloudsRequestZoneConfigAnyOfOneOf
 // will change when the set of required properties is changed
 func NewAddCloudsRequestZoneConfigAnyOfOneOf2() *AddCloudsRequestZoneConfigAnyOfOneOf2 {
 	this := AddCloudsRequestZoneConfigAnyOfOneOf2{}
-	var certificateProvider string = "internal"
-	this.CertificateProvider = &certificateProvider
 	return &this
 }
 
@@ -44,8 +43,6 @@ func NewAddCloudsRequestZoneConfigAnyOfOneOf2() *AddCloudsRequestZoneConfigAnyOf
 // but it doesn't guarantee that properties required by API are set
 func NewAddCloudsRequestZoneConfigAnyOfOneOf2WithDefaults() *AddCloudsRequestZoneConfigAnyOfOneOf2 {
 	this := AddCloudsRequestZoneConfigAnyOfOneOf2{}
-	var certificateProvider string = "internal"
-	this.CertificateProvider = &certificateProvider
 	return &this
 }
 
@@ -81,47 +78,36 @@ func (o *AddCloudsRequestZoneConfigAnyOfOneOf2) SetCertificateProvider(v string)
 	o.CertificateProvider = &v
 }
 
-// GetEnableNetworkTypeSelection returns the EnableNetworkTypeSelection field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AddCloudsRequestZoneConfigAnyOfOneOf2) GetEnableNetworkTypeSelection() string {
-	if o == nil || IsNil(o.EnableNetworkTypeSelection.Get()) {
-		var ret string
+// GetEnableNetworkTypeSelection returns the EnableNetworkTypeSelection field value if set, zero value otherwise.
+func (o *AddCloudsRequestZoneConfigAnyOfOneOf2) GetEnableNetworkTypeSelection() bool {
+	if o == nil || IsNil(o.EnableNetworkTypeSelection) {
+		var ret bool
 		return ret
 	}
-	return *o.EnableNetworkTypeSelection.Get()
+	return *o.EnableNetworkTypeSelection
 }
 
 // GetEnableNetworkTypeSelectionOk returns a tuple with the EnableNetworkTypeSelection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AddCloudsRequestZoneConfigAnyOfOneOf2) GetEnableNetworkTypeSelectionOk() (*string, bool) {
-	if o == nil {
+func (o *AddCloudsRequestZoneConfigAnyOfOneOf2) GetEnableNetworkTypeSelectionOk() (*bool, bool) {
+	if o == nil || IsNil(o.EnableNetworkTypeSelection) {
 		return nil, false
 	}
-	return o.EnableNetworkTypeSelection.Get(), o.EnableNetworkTypeSelection.IsSet()
+	return o.EnableNetworkTypeSelection, true
 }
 
 // IsSetEnableNetworkTypeSelection returns a boolean if a field has been set.
 func (o *AddCloudsRequestZoneConfigAnyOfOneOf2) IsSetEnableNetworkTypeSelection() bool {
-	if o != nil && o.EnableNetworkTypeSelection.IsSet() {
+	if o != nil && !IsNil(o.EnableNetworkTypeSelection) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnableNetworkTypeSelection gets a reference to the given NullableString and assigns it to the EnableNetworkTypeSelection field.
-func (o *AddCloudsRequestZoneConfigAnyOfOneOf2) SetEnableNetworkTypeSelection(v string) {
-	o.EnableNetworkTypeSelection.Set(&v)
-}
-
-// SetEnableNetworkTypeSelectionNil sets the value for EnableNetworkTypeSelection to be an explicit nil
-func (o *AddCloudsRequestZoneConfigAnyOfOneOf2) SetEnableNetworkTypeSelectionNil() {
-	o.EnableNetworkTypeSelection.Set(nil)
-}
-
-// UnsetEnableNetworkTypeSelection ensures that no value is present for EnableNetworkTypeSelection, not even an explicit nil
-func (o *AddCloudsRequestZoneConfigAnyOfOneOf2) UnsetEnableNetworkTypeSelection() {
-	o.EnableNetworkTypeSelection.Unset()
+// SetEnableNetworkTypeSelection gets a reference to the given bool and assigns it to the EnableNetworkTypeSelection field.
+func (o *AddCloudsRequestZoneConfigAnyOfOneOf2) SetEnableNetworkTypeSelection(v bool) {
+	o.EnableNetworkTypeSelection = &v
 }
 
 func (o AddCloudsRequestZoneConfigAnyOfOneOf2) MarshalJSON() ([]byte, error) {
@@ -137,8 +123,8 @@ func (o AddCloudsRequestZoneConfigAnyOfOneOf2) ToMap() (map[string]interface{}, 
 	if !IsNil(o.CertificateProvider) {
 		toSerialize["certificateProvider"] = o.CertificateProvider
 	}
-	if o.EnableNetworkTypeSelection.IsSet() {
-		toSerialize["enableNetworkTypeSelection"] = o.EnableNetworkTypeSelection.Get()
+	if !IsNil(o.EnableNetworkTypeSelection) {
+		toSerialize["enableNetworkTypeSelection"] = o.EnableNetworkTypeSelection
 	}
 
 	for key, value := range o.AdditionalProperties {
