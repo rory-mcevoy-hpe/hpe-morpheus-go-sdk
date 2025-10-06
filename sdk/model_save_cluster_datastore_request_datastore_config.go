@@ -23,6 +23,8 @@ var _ fmt.Stringer
 type SaveClusterDatastoreRequestDatastoreConfig struct {
 	SaveClusterDatastoreRequestDatastoreConfigAnyOf  *SaveClusterDatastoreRequestDatastoreConfigAnyOf
 	SaveClusterDatastoreRequestDatastoreConfigAnyOf1 *SaveClusterDatastoreRequestDatastoreConfigAnyOf1
+	SaveClusterDatastoreRequestDatastoreConfigAnyOf2 *SaveClusterDatastoreRequestDatastoreConfigAnyOf2
+	MapmapOfStringAny                                *map[string]interface{}
 }
 
 func (dst *SaveClusterDatastoreRequestDatastoreConfig) UnmarshalMapstructure(data any) (any, error) {
@@ -36,6 +38,14 @@ func (dst *SaveClusterDatastoreRequestDatastoreConfig) UnmarshalMapstructure(dat
 
 	if out, ok := data.(SaveClusterDatastoreRequestDatastoreConfigAnyOf1); ok {
 		dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf1 = &out
+	}
+
+	if out, ok := data.(SaveClusterDatastoreRequestDatastoreConfigAnyOf2); ok {
+		dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2 = &out
+	}
+
+	if out, ok := data.(map[string]interface{}); ok {
+		dst.MapmapOfStringAny = &out
 	}
 
 	return dst, nil
@@ -70,6 +80,32 @@ func (dst *SaveClusterDatastoreRequestDatastoreConfig) UnmarshalJSON(data []byte
 		dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf1 = nil
 	}
 
+	// try to unmarshal JSON data into SaveClusterDatastoreRequestDatastoreConfigAnyOf2
+	err = json.Unmarshal(data, &dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2)
+	if err == nil {
+		jsonSaveClusterDatastoreRequestDatastoreConfigAnyOf2, _ := json.Marshal(dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2)
+		if string(jsonSaveClusterDatastoreRequestDatastoreConfigAnyOf2) == "{}" { // empty struct
+			dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2 = nil
+		} else {
+			return nil // data stored in dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2, return on the first match
+		}
+	} else {
+		dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2 = nil
+	}
+
+	// try to unmarshal JSON data into MapmapOfStringAny
+	err = json.Unmarshal(data, &dst.MapmapOfStringAny)
+	if err == nil {
+		jsonMapmapOfStringAny, _ := json.Marshal(dst.MapmapOfStringAny)
+		if string(jsonMapmapOfStringAny) == "{}" { // empty struct
+			dst.MapmapOfStringAny = nil
+		} else {
+			return nil // data stored in dst.MapmapOfStringAny, return on the first match
+		}
+	} else {
+		dst.MapmapOfStringAny = nil
+	}
+
 	return NewResponseValidationError("data failed to match schemas in anyOf(SaveClusterDatastoreRequestDatastoreConfig)")
 }
 
@@ -81,6 +117,14 @@ func (src SaveClusterDatastoreRequestDatastoreConfig) MarshalJSON() ([]byte, err
 
 	if src.SaveClusterDatastoreRequestDatastoreConfigAnyOf1 != nil {
 		return json.Marshal(&src.SaveClusterDatastoreRequestDatastoreConfigAnyOf1)
+	}
+
+	if src.SaveClusterDatastoreRequestDatastoreConfigAnyOf2 != nil {
+		return json.Marshal(&src.SaveClusterDatastoreRequestDatastoreConfigAnyOf2)
+	}
+
+	if src.MapmapOfStringAny != nil {
+		return json.Marshal(&src.MapmapOfStringAny)
 	}
 
 	return nil, nil // no data in anyOf schemas
