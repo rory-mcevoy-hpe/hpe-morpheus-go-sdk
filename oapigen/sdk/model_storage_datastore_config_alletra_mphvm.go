@@ -21,7 +21,7 @@ var _ MappedNullable = &StorageDatastoreConfigAlletraMPHVM{}
 // StorageDatastoreConfigAlletraMPHVM AlletraMP HVM Datastore Configuration
 type StorageDatastoreConfigAlletraMPHVM struct {
 	// Enable ransomware protection for this datastore
-	EnableRansomware bool `json:"enableRansomware"`
+	Enableransomware *string `json:"enableransomware,omitempty"`
 	// Storage protocol to use, can be 'iSCSI' or 'FC'
 	ProtocolType         string                 `json:"protocolType"`
 	AdditionalProperties map[string]interface{} `json:",remain"`
@@ -33,9 +33,8 @@ type _StorageDatastoreConfigAlletraMPHVM StorageDatastoreConfigAlletraMPHVM
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStorageDatastoreConfigAlletraMPHVM(enableRansomware bool, protocolType string) *StorageDatastoreConfigAlletraMPHVM {
+func NewStorageDatastoreConfigAlletraMPHVM(protocolType string) *StorageDatastoreConfigAlletraMPHVM {
 	this := StorageDatastoreConfigAlletraMPHVM{}
-	this.EnableRansomware = enableRansomware
 	this.ProtocolType = protocolType
 	return &this
 }
@@ -48,28 +47,36 @@ func NewStorageDatastoreConfigAlletraMPHVMWithDefaults() *StorageDatastoreConfig
 	return &this
 }
 
-// GetEnableRansomware returns the EnableRansomware field value
-func (o *StorageDatastoreConfigAlletraMPHVM) GetEnableRansomware() bool {
-	if o == nil {
-		var ret bool
+// GetEnableransomware returns the Enableransomware field value if set, zero value otherwise.
+func (o *StorageDatastoreConfigAlletraMPHVM) GetEnableransomware() string {
+	if o == nil || IsNil(o.Enableransomware) {
+		var ret string
 		return ret
 	}
-
-	return o.EnableRansomware
+	return *o.Enableransomware
 }
 
-// GetEnableRansomwareOk returns a tuple with the EnableRansomware field value
+// GetEnableransomwareOk returns a tuple with the Enableransomware field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StorageDatastoreConfigAlletraMPHVM) GetEnableRansomwareOk() (*bool, bool) {
-	if o == nil {
+func (o *StorageDatastoreConfigAlletraMPHVM) GetEnableransomwareOk() (*string, bool) {
+	if o == nil || IsNil(o.Enableransomware) {
 		return nil, false
 	}
-	return &o.EnableRansomware, true
+	return o.Enableransomware, true
 }
 
-// SetEnableRansomware sets field value
-func (o *StorageDatastoreConfigAlletraMPHVM) SetEnableRansomware(v bool) {
-	o.EnableRansomware = v
+// IsSetEnableransomware returns a boolean if a field has been set.
+func (o *StorageDatastoreConfigAlletraMPHVM) IsSetEnableransomware() bool {
+	if o != nil && !IsNil(o.Enableransomware) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnableransomware gets a reference to the given string and assigns it to the Enableransomware field.
+func (o *StorageDatastoreConfigAlletraMPHVM) SetEnableransomware(v string) {
+	o.Enableransomware = &v
 }
 
 // GetProtocolType returns the ProtocolType field value
@@ -106,7 +113,9 @@ func (o StorageDatastoreConfigAlletraMPHVM) MarshalJSON() ([]byte, error) {
 
 func (o StorageDatastoreConfigAlletraMPHVM) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["enableRansomware"] = o.EnableRansomware
+	if !IsNil(o.Enableransomware) {
+		toSerialize["enableransomware"] = o.Enableransomware
+	}
 	toSerialize["protocolType"] = o.ProtocolType
 
 	for key, value := range o.AdditionalProperties {

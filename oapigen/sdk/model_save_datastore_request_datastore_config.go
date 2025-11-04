@@ -21,10 +21,10 @@ var _ fmt.Stringer
 
 // SaveDatastoreRequestDatastoreConfig Configuration options for the datastore, varies based on the type of datastore.
 type SaveDatastoreRequestDatastoreConfig struct {
-	SaveClusterDatastoreRequestDatastoreConfigAnyOf  *SaveClusterDatastoreRequestDatastoreConfigAnyOf
-	SaveClusterDatastoreRequestDatastoreConfigAnyOf1 *SaveClusterDatastoreRequestDatastoreConfigAnyOf1
-	SaveClusterDatastoreRequestDatastoreConfigAnyOf2 *SaveClusterDatastoreRequestDatastoreConfigAnyOf2
-	MapmapOfStringAny                                *map[string]interface{}
+	AlletraMPHVMDatastoreConfiguration1 *AlletraMPHVMDatastoreConfiguration1
+	GFS2DatastoreConfiguration          *GFS2DatastoreConfiguration
+	NFSDatastoreConfiguration           *NFSDatastoreConfiguration
+	MapmapOfStringAny                   *map[string]interface{}
 }
 
 func (dst *SaveDatastoreRequestDatastoreConfig) UnmarshalMapstructure(data any) (any, error) {
@@ -32,16 +32,16 @@ func (dst *SaveDatastoreRequestDatastoreConfig) UnmarshalMapstructure(data any) 
 		dst = &SaveDatastoreRequestDatastoreConfig{}
 	}
 
-	if out, ok := data.(SaveClusterDatastoreRequestDatastoreConfigAnyOf); ok {
-		dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf = &out
+	if out, ok := data.(AlletraMPHVMDatastoreConfiguration1); ok {
+		dst.AlletraMPHVMDatastoreConfiguration1 = &out
 	}
 
-	if out, ok := data.(SaveClusterDatastoreRequestDatastoreConfigAnyOf1); ok {
-		dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf1 = &out
+	if out, ok := data.(GFS2DatastoreConfiguration); ok {
+		dst.GFS2DatastoreConfiguration = &out
 	}
 
-	if out, ok := data.(SaveClusterDatastoreRequestDatastoreConfigAnyOf2); ok {
-		dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2 = &out
+	if out, ok := data.(NFSDatastoreConfiguration); ok {
+		dst.NFSDatastoreConfiguration = &out
 	}
 
 	if out, ok := data.(map[string]interface{}); ok {
@@ -54,43 +54,43 @@ func (dst *SaveDatastoreRequestDatastoreConfig) UnmarshalMapstructure(data any) 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *SaveDatastoreRequestDatastoreConfig) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into SaveClusterDatastoreRequestDatastoreConfigAnyOf
-	err = json.Unmarshal(data, &dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf)
+	// try to unmarshal JSON data into AlletraMPHVMDatastoreConfiguration1
+	err = json.Unmarshal(data, &dst.AlletraMPHVMDatastoreConfiguration1)
 	if err == nil {
-		jsonSaveClusterDatastoreRequestDatastoreConfigAnyOf, _ := json.Marshal(dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf)
-		if string(jsonSaveClusterDatastoreRequestDatastoreConfigAnyOf) == "{}" { // empty struct
-			dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf = nil
+		jsonAlletraMPHVMDatastoreConfiguration1, _ := json.Marshal(dst.AlletraMPHVMDatastoreConfiguration1)
+		if string(jsonAlletraMPHVMDatastoreConfiguration1) == "{}" { // empty struct
+			dst.AlletraMPHVMDatastoreConfiguration1 = nil
 		} else {
-			return nil // data stored in dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf, return on the first match
+			return nil // data stored in dst.AlletraMPHVMDatastoreConfiguration1, return on the first match
 		}
 	} else {
-		dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf = nil
+		dst.AlletraMPHVMDatastoreConfiguration1 = nil
 	}
 
-	// try to unmarshal JSON data into SaveClusterDatastoreRequestDatastoreConfigAnyOf1
-	err = json.Unmarshal(data, &dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf1)
+	// try to unmarshal JSON data into GFS2DatastoreConfiguration
+	err = json.Unmarshal(data, &dst.GFS2DatastoreConfiguration)
 	if err == nil {
-		jsonSaveClusterDatastoreRequestDatastoreConfigAnyOf1, _ := json.Marshal(dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf1)
-		if string(jsonSaveClusterDatastoreRequestDatastoreConfigAnyOf1) == "{}" { // empty struct
-			dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf1 = nil
+		jsonGFS2DatastoreConfiguration, _ := json.Marshal(dst.GFS2DatastoreConfiguration)
+		if string(jsonGFS2DatastoreConfiguration) == "{}" { // empty struct
+			dst.GFS2DatastoreConfiguration = nil
 		} else {
-			return nil // data stored in dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf1, return on the first match
+			return nil // data stored in dst.GFS2DatastoreConfiguration, return on the first match
 		}
 	} else {
-		dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf1 = nil
+		dst.GFS2DatastoreConfiguration = nil
 	}
 
-	// try to unmarshal JSON data into SaveClusterDatastoreRequestDatastoreConfigAnyOf2
-	err = json.Unmarshal(data, &dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2)
+	// try to unmarshal JSON data into NFSDatastoreConfiguration
+	err = json.Unmarshal(data, &dst.NFSDatastoreConfiguration)
 	if err == nil {
-		jsonSaveClusterDatastoreRequestDatastoreConfigAnyOf2, _ := json.Marshal(dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2)
-		if string(jsonSaveClusterDatastoreRequestDatastoreConfigAnyOf2) == "{}" { // empty struct
-			dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2 = nil
+		jsonNFSDatastoreConfiguration, _ := json.Marshal(dst.NFSDatastoreConfiguration)
+		if string(jsonNFSDatastoreConfiguration) == "{}" { // empty struct
+			dst.NFSDatastoreConfiguration = nil
 		} else {
-			return nil // data stored in dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2, return on the first match
+			return nil // data stored in dst.NFSDatastoreConfiguration, return on the first match
 		}
 	} else {
-		dst.SaveClusterDatastoreRequestDatastoreConfigAnyOf2 = nil
+		dst.NFSDatastoreConfiguration = nil
 	}
 
 	// try to unmarshal JSON data into MapmapOfStringAny
@@ -111,16 +111,16 @@ func (dst *SaveDatastoreRequestDatastoreConfig) UnmarshalJSON(data []byte) error
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src SaveDatastoreRequestDatastoreConfig) MarshalJSON() ([]byte, error) {
-	if src.SaveClusterDatastoreRequestDatastoreConfigAnyOf != nil {
-		return json.Marshal(&src.SaveClusterDatastoreRequestDatastoreConfigAnyOf)
+	if src.AlletraMPHVMDatastoreConfiguration1 != nil {
+		return json.Marshal(&src.AlletraMPHVMDatastoreConfiguration1)
 	}
 
-	if src.SaveClusterDatastoreRequestDatastoreConfigAnyOf1 != nil {
-		return json.Marshal(&src.SaveClusterDatastoreRequestDatastoreConfigAnyOf1)
+	if src.GFS2DatastoreConfiguration != nil {
+		return json.Marshal(&src.GFS2DatastoreConfiguration)
 	}
 
-	if src.SaveClusterDatastoreRequestDatastoreConfigAnyOf2 != nil {
-		return json.Marshal(&src.SaveClusterDatastoreRequestDatastoreConfigAnyOf2)
+	if src.NFSDatastoreConfiguration != nil {
+		return json.Marshal(&src.NFSDatastoreConfiguration)
 	}
 
 	if src.MapmapOfStringAny != nil {
