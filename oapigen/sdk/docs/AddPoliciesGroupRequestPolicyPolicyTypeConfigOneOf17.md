@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MaxStorage** | Pointer to **string** |  | [optional] 
-**ExcludeContainers** | Pointer to **string** |  | [optional] [default to "off"]
+**MaxSnapshots** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -26,55 +25,30 @@ NewAddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17WithDefaults instantiates
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetMaxStorage
+### GetMaxSnapshots
 
-`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) GetMaxStorage() string`
+`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) GetMaxSnapshots() string`
 
-GetMaxStorage returns the MaxStorage field if non-nil, zero value otherwise.
+GetMaxSnapshots returns the MaxSnapshots field if non-nil, zero value otherwise.
 
-### GetMaxStorageOk
+### GetMaxSnapshotsOk
 
-`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) GetMaxStorageOk() (*string, bool)`
+`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) GetMaxSnapshotsOk() (*string, bool)`
 
-GetMaxStorageOk returns a tuple with the MaxStorage field if it's non-nil, zero value otherwise
+GetMaxSnapshotsOk returns a tuple with the MaxSnapshots field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMaxStorage
+### SetMaxSnapshots
 
-`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) SetMaxStorage(v string)`
+`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) SetMaxSnapshots(v string)`
 
-SetMaxStorage sets MaxStorage field to given value.
+SetMaxSnapshots sets MaxSnapshots field to given value.
 
-### HasMaxStorage
+### HasMaxSnapshots
 
-`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) HasMaxStorage() bool`
+`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) HasMaxSnapshots() bool`
 
-HasMaxStorage returns a boolean if a field has been set.
-
-### GetExcludeContainers
-
-`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) GetExcludeContainers() string`
-
-GetExcludeContainers returns the ExcludeContainers field if non-nil, zero value otherwise.
-
-### GetExcludeContainersOk
-
-`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) GetExcludeContainersOk() (*string, bool)`
-
-GetExcludeContainersOk returns a tuple with the ExcludeContainers field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetExcludeContainers
-
-`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) SetExcludeContainers(v string)`
-
-SetExcludeContainers sets ExcludeContainers field to given value.
-
-### HasExcludeContainers
-
-`func (o *AddPoliciesGroupRequestPolicyPolicyTypeConfigOneOf17) HasExcludeContainers() bool`
-
-HasExcludeContainers returns a boolean if a field has been set.
+HasMaxSnapshots returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
