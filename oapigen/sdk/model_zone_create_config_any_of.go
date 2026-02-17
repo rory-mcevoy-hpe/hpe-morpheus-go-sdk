@@ -18,7 +18,7 @@ import (
 // checks if the ZoneCreateConfigAnyOf type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ZoneCreateConfigAnyOf{}
 
-// ZoneCreateConfigAnyOf VSphere Cloud
+// ZoneCreateConfigAnyOf Amazon Cloud
 type ZoneCreateConfigAnyOf struct {
 	// The URL used by workloads provisioned in the cloud for interacting with the Morpheus appliance.
 	ApplianceUrl *string `json:"applianceUrl,omitempty"`
@@ -30,32 +30,22 @@ type ZoneCreateConfigAnyOf struct {
 	InventoryLevel *string `json:"inventoryLevel,omitempty"`
 	// The keyboard layout to use for the console
 	ConsoleKeymap *string `json:"consoleKeymap,omitempty"`
-	// The SDK URL of the vCenter server.
-	ApiUrl string `json:"apiUrl"`
-	// The SDK version of the vCenter server.
-	ApiVersion string `json:"apiVersion"`
-	// The vSphere datacenter to add.
-	Datacenter string `json:"datacenter"`
-	// The name of the vSphere cluster
-	Cluster *string `json:"cluster,omitempty"`
-	// The id of the configuration management integration associated with the vSphere cloud.
+	// AWS endpoint
+	Endpoint string `json:"endpoint"`
+	// AWS access key
+	AccessKey *string `json:"accessKey,omitempty"`
+	// AWS secret key
+	SecretKey *string `json:"secretKey,omitempty"`
+	// Whether to use the IAM profile associated with the Morpheus server or not
+	UseHostCredentials *string `json:"useHostCredentials,omitempty"`
+	// Determines whether to configure default EBS volume encryption or not
+	EbsEncryption *string `json:"ebsEncryption,omitempty"`
+	// The AWS IAM role ARN to assume for authentication
+	StsAssumeRole *string `json:"stsAssumeRole,omitempty"`
+	// The id of the configuration management integration associated with the AWS cloud
 	ConfigManagementId *string `json:"configManagementId,omitempty"`
-	// The name of the vSphere resource pool
-	ResourcePool *string                                 `json:"resourcePool,omitempty"`
-	RpcMode      NullableCloudCreateConfigVsphereRpcMode `json:"rpcMode,omitempty"`
-	// The default vSphere VMDK type for virtual machines
-	StorageType *string `json:"storageType,omitempty"`
-	// Certificate provider
-	CertificateProvider        *string                                                    `json:"certificateProvider,omitempty"`
-	EnableVnc                  NullableZoneCreateConfigAnyOfEnableVnc                     `json:"enableVnc,omitempty"`
-	HideHostSelection          NullableZoneCreateConfigAnyOfHideHostSelection             `json:"hideHostSelection,omitempty"`
-	EnableDiskTypeSelection    NullableZoneCreateConfigAnyOfEnableDiskTypeSelection       `json:"enableDiskTypeSelection,omitempty"`
-	EnableStorageTypeSelection NullableZoneCreateConfigAnyOfEnableStorageTypeSelection    `json:"enableStorageTypeSelection,omitempty"`
-	EnableNetworkTypeSelection NullableCloudCreateConfigVsphereEnableNetworkTypeSelection `json:"enableNetworkTypeSelection,omitempty"`
-	// Username.
-	Username *string `json:"username,omitempty"`
-	// Password to apply to the user
-	Password             *string                `json:"password,omitempty"`
+	// The VPC ID for a specific VPC
+	Vpc                  *string                `json:"vpc,omitempty"`
 	AdditionalProperties map[string]interface{} `json:",remain"`
 }
 
@@ -65,19 +55,13 @@ type _ZoneCreateConfigAnyOf ZoneCreateConfigAnyOf
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewZoneCreateConfigAnyOf(apiUrl string, apiVersion string, datacenter string) *ZoneCreateConfigAnyOf {
+func NewZoneCreateConfigAnyOf(endpoint string) *ZoneCreateConfigAnyOf {
 	this := ZoneCreateConfigAnyOf{}
-	this.ApiUrl = apiUrl
-	this.ApiVersion = apiVersion
-	this.Datacenter = datacenter
-	var cluster string = "all"
-	this.Cluster = &cluster
-	var rpcMode CloudCreateConfigVsphereRpcMode = guestexec
-	this.RpcMode = *NewNullableCloudCreateConfigVsphereRpcMode(&rpcMode)
-	var storageType string = "thin"
-	this.StorageType = &storageType
-	var certificateProvider string = "internal"
-	this.CertificateProvider = &certificateProvider
+	this.Endpoint = endpoint
+	var useHostCredentials string = "on"
+	this.UseHostCredentials = &useHostCredentials
+	var ebsEncryption string = "on"
+	this.EbsEncryption = &ebsEncryption
 	return &this
 }
 
@@ -86,14 +70,10 @@ func NewZoneCreateConfigAnyOf(apiUrl string, apiVersion string, datacenter strin
 // but it doesn't guarantee that properties required by API are set
 func NewZoneCreateConfigAnyOfWithDefaults() *ZoneCreateConfigAnyOf {
 	this := ZoneCreateConfigAnyOf{}
-	var cluster string = "all"
-	this.Cluster = &cluster
-	var rpcMode CloudCreateConfigVsphereRpcMode = guestexec
-	this.RpcMode = *NewNullableCloudCreateConfigVsphereRpcMode(&rpcMode)
-	var storageType string = "thin"
-	this.StorageType = &storageType
-	var certificateProvider string = "internal"
-	this.CertificateProvider = &certificateProvider
+	var useHostCredentials string = "on"
+	this.UseHostCredentials = &useHostCredentials
+	var ebsEncryption string = "on"
+	this.EbsEncryption = &ebsEncryption
 	return &this
 }
 
@@ -268,108 +248,188 @@ func (o *ZoneCreateConfigAnyOf) SetConsoleKeymap(v string) {
 	o.ConsoleKeymap = &v
 }
 
-// GetApiUrl returns the ApiUrl field value
-func (o *ZoneCreateConfigAnyOf) GetApiUrl() string {
+// GetEndpoint returns the Endpoint field value
+func (o *ZoneCreateConfigAnyOf) GetEndpoint() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.ApiUrl
+	return o.Endpoint
 }
 
-// GetApiUrlOk returns a tuple with the ApiUrl field value
+// GetEndpointOk returns a tuple with the Endpoint field value
 // and a boolean to check if the value has been set.
-func (o *ZoneCreateConfigAnyOf) GetApiUrlOk() (*string, bool) {
+func (o *ZoneCreateConfigAnyOf) GetEndpointOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ApiUrl, true
+	return &o.Endpoint, true
 }
 
-// SetApiUrl sets field value
-func (o *ZoneCreateConfigAnyOf) SetApiUrl(v string) {
-	o.ApiUrl = v
+// SetEndpoint sets field value
+func (o *ZoneCreateConfigAnyOf) SetEndpoint(v string) {
+	o.Endpoint = v
 }
 
-// GetApiVersion returns the ApiVersion field value
-func (o *ZoneCreateConfigAnyOf) GetApiVersion() string {
-	if o == nil {
+// GetAccessKey returns the AccessKey field value if set, zero value otherwise.
+func (o *ZoneCreateConfigAnyOf) GetAccessKey() string {
+	if o == nil || IsNil(o.AccessKey) {
 		var ret string
 		return ret
 	}
-
-	return o.ApiVersion
+	return *o.AccessKey
 }
 
-// GetApiVersionOk returns a tuple with the ApiVersion field value
+// GetAccessKeyOk returns a tuple with the AccessKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ZoneCreateConfigAnyOf) GetApiVersionOk() (*string, bool) {
-	if o == nil {
+func (o *ZoneCreateConfigAnyOf) GetAccessKeyOk() (*string, bool) {
+	if o == nil || IsNil(o.AccessKey) {
 		return nil, false
 	}
-	return &o.ApiVersion, true
+	return o.AccessKey, true
 }
 
-// SetApiVersion sets field value
-func (o *ZoneCreateConfigAnyOf) SetApiVersion(v string) {
-	o.ApiVersion = v
-}
-
-// GetDatacenter returns the Datacenter field value
-func (o *ZoneCreateConfigAnyOf) GetDatacenter() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Datacenter
-}
-
-// GetDatacenterOk returns a tuple with the Datacenter field value
-// and a boolean to check if the value has been set.
-func (o *ZoneCreateConfigAnyOf) GetDatacenterOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Datacenter, true
-}
-
-// SetDatacenter sets field value
-func (o *ZoneCreateConfigAnyOf) SetDatacenter(v string) {
-	o.Datacenter = v
-}
-
-// GetCluster returns the Cluster field value if set, zero value otherwise.
-func (o *ZoneCreateConfigAnyOf) GetCluster() string {
-	if o == nil || IsNil(o.Cluster) {
-		var ret string
-		return ret
-	}
-	return *o.Cluster
-}
-
-// GetClusterOk returns a tuple with the Cluster field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ZoneCreateConfigAnyOf) GetClusterOk() (*string, bool) {
-	if o == nil || IsNil(o.Cluster) {
-		return nil, false
-	}
-	return o.Cluster, true
-}
-
-// IsSetCluster returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetCluster() bool {
-	if o != nil && !IsNil(o.Cluster) {
+// IsSetAccessKey returns a boolean if a field has been set.
+func (o *ZoneCreateConfigAnyOf) IsSetAccessKey() bool {
+	if o != nil && !IsNil(o.AccessKey) {
 		return true
 	}
 
 	return false
 }
 
-// SetCluster gets a reference to the given string and assigns it to the Cluster field.
-func (o *ZoneCreateConfigAnyOf) SetCluster(v string) {
-	o.Cluster = &v
+// SetAccessKey gets a reference to the given string and assigns it to the AccessKey field.
+func (o *ZoneCreateConfigAnyOf) SetAccessKey(v string) {
+	o.AccessKey = &v
+}
+
+// GetSecretKey returns the SecretKey field value if set, zero value otherwise.
+func (o *ZoneCreateConfigAnyOf) GetSecretKey() string {
+	if o == nil || IsNil(o.SecretKey) {
+		var ret string
+		return ret
+	}
+	return *o.SecretKey
+}
+
+// GetSecretKeyOk returns a tuple with the SecretKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ZoneCreateConfigAnyOf) GetSecretKeyOk() (*string, bool) {
+	if o == nil || IsNil(o.SecretKey) {
+		return nil, false
+	}
+	return o.SecretKey, true
+}
+
+// IsSetSecretKey returns a boolean if a field has been set.
+func (o *ZoneCreateConfigAnyOf) IsSetSecretKey() bool {
+	if o != nil && !IsNil(o.SecretKey) {
+		return true
+	}
+
+	return false
+}
+
+// SetSecretKey gets a reference to the given string and assigns it to the SecretKey field.
+func (o *ZoneCreateConfigAnyOf) SetSecretKey(v string) {
+	o.SecretKey = &v
+}
+
+// GetUseHostCredentials returns the UseHostCredentials field value if set, zero value otherwise.
+func (o *ZoneCreateConfigAnyOf) GetUseHostCredentials() string {
+	if o == nil || IsNil(o.UseHostCredentials) {
+		var ret string
+		return ret
+	}
+	return *o.UseHostCredentials
+}
+
+// GetUseHostCredentialsOk returns a tuple with the UseHostCredentials field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ZoneCreateConfigAnyOf) GetUseHostCredentialsOk() (*string, bool) {
+	if o == nil || IsNil(o.UseHostCredentials) {
+		return nil, false
+	}
+	return o.UseHostCredentials, true
+}
+
+// IsSetUseHostCredentials returns a boolean if a field has been set.
+func (o *ZoneCreateConfigAnyOf) IsSetUseHostCredentials() bool {
+	if o != nil && !IsNil(o.UseHostCredentials) {
+		return true
+	}
+
+	return false
+}
+
+// SetUseHostCredentials gets a reference to the given string and assigns it to the UseHostCredentials field.
+func (o *ZoneCreateConfigAnyOf) SetUseHostCredentials(v string) {
+	o.UseHostCredentials = &v
+}
+
+// GetEbsEncryption returns the EbsEncryption field value if set, zero value otherwise.
+func (o *ZoneCreateConfigAnyOf) GetEbsEncryption() string {
+	if o == nil || IsNil(o.EbsEncryption) {
+		var ret string
+		return ret
+	}
+	return *o.EbsEncryption
+}
+
+// GetEbsEncryptionOk returns a tuple with the EbsEncryption field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ZoneCreateConfigAnyOf) GetEbsEncryptionOk() (*string, bool) {
+	if o == nil || IsNil(o.EbsEncryption) {
+		return nil, false
+	}
+	return o.EbsEncryption, true
+}
+
+// IsSetEbsEncryption returns a boolean if a field has been set.
+func (o *ZoneCreateConfigAnyOf) IsSetEbsEncryption() bool {
+	if o != nil && !IsNil(o.EbsEncryption) {
+		return true
+	}
+
+	return false
+}
+
+// SetEbsEncryption gets a reference to the given string and assigns it to the EbsEncryption field.
+func (o *ZoneCreateConfigAnyOf) SetEbsEncryption(v string) {
+	o.EbsEncryption = &v
+}
+
+// GetStsAssumeRole returns the StsAssumeRole field value if set, zero value otherwise.
+func (o *ZoneCreateConfigAnyOf) GetStsAssumeRole() string {
+	if o == nil || IsNil(o.StsAssumeRole) {
+		var ret string
+		return ret
+	}
+	return *o.StsAssumeRole
+}
+
+// GetStsAssumeRoleOk returns a tuple with the StsAssumeRole field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ZoneCreateConfigAnyOf) GetStsAssumeRoleOk() (*string, bool) {
+	if o == nil || IsNil(o.StsAssumeRole) {
+		return nil, false
+	}
+	return o.StsAssumeRole, true
+}
+
+// IsSetStsAssumeRole returns a boolean if a field has been set.
+func (o *ZoneCreateConfigAnyOf) IsSetStsAssumeRole() bool {
+	if o != nil && !IsNil(o.StsAssumeRole) {
+		return true
+	}
+
+	return false
+}
+
+// SetStsAssumeRole gets a reference to the given string and assigns it to the StsAssumeRole field.
+func (o *ZoneCreateConfigAnyOf) SetStsAssumeRole(v string) {
+	o.StsAssumeRole = &v
 }
 
 // GetConfigManagementId returns the ConfigManagementId field value if set, zero value otherwise.
@@ -404,422 +464,36 @@ func (o *ZoneCreateConfigAnyOf) SetConfigManagementId(v string) {
 	o.ConfigManagementId = &v
 }
 
-// GetResourcePool returns the ResourcePool field value if set, zero value otherwise.
-func (o *ZoneCreateConfigAnyOf) GetResourcePool() string {
-	if o == nil || IsNil(o.ResourcePool) {
+// GetVpc returns the Vpc field value if set, zero value otherwise.
+func (o *ZoneCreateConfigAnyOf) GetVpc() string {
+	if o == nil || IsNil(o.Vpc) {
 		var ret string
 		return ret
 	}
-	return *o.ResourcePool
+	return *o.Vpc
 }
 
-// GetResourcePoolOk returns a tuple with the ResourcePool field value if set, nil otherwise
+// GetVpcOk returns a tuple with the Vpc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ZoneCreateConfigAnyOf) GetResourcePoolOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourcePool) {
+func (o *ZoneCreateConfigAnyOf) GetVpcOk() (*string, bool) {
+	if o == nil || IsNil(o.Vpc) {
 		return nil, false
 	}
-	return o.ResourcePool, true
+	return o.Vpc, true
 }
 
-// IsSetResourcePool returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetResourcePool() bool {
-	if o != nil && !IsNil(o.ResourcePool) {
+// IsSetVpc returns a boolean if a field has been set.
+func (o *ZoneCreateConfigAnyOf) IsSetVpc() bool {
+	if o != nil && !IsNil(o.Vpc) {
 		return true
 	}
 
 	return false
 }
 
-// SetResourcePool gets a reference to the given string and assigns it to the ResourcePool field.
-func (o *ZoneCreateConfigAnyOf) SetResourcePool(v string) {
-	o.ResourcePool = &v
-}
-
-// GetRpcMode returns the RpcMode field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ZoneCreateConfigAnyOf) GetRpcMode() CloudCreateConfigVsphereRpcMode {
-	if o == nil || IsNil(o.RpcMode.Get()) {
-		var ret CloudCreateConfigVsphereRpcMode
-		return ret
-	}
-	return *o.RpcMode.Get()
-}
-
-// GetRpcModeOk returns a tuple with the RpcMode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ZoneCreateConfigAnyOf) GetRpcModeOk() (*CloudCreateConfigVsphereRpcMode, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.RpcMode.Get(), o.RpcMode.IsSet()
-}
-
-// IsSetRpcMode returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetRpcMode() bool {
-	if o != nil && o.RpcMode.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetRpcMode gets a reference to the given NullableCloudCreateConfigVsphereRpcMode and assigns it to the RpcMode field.
-func (o *ZoneCreateConfigAnyOf) SetRpcMode(v CloudCreateConfigVsphereRpcMode) {
-	o.RpcMode.Set(&v)
-}
-
-// SetRpcModeNil sets the value for RpcMode to be an explicit nil
-func (o *ZoneCreateConfigAnyOf) SetRpcModeNil() {
-	o.RpcMode.Set(nil)
-}
-
-// UnsetRpcMode ensures that no value is present for RpcMode, not even an explicit nil
-func (o *ZoneCreateConfigAnyOf) UnsetRpcMode() {
-	o.RpcMode.Unset()
-}
-
-// GetStorageType returns the StorageType field value if set, zero value otherwise.
-func (o *ZoneCreateConfigAnyOf) GetStorageType() string {
-	if o == nil || IsNil(o.StorageType) {
-		var ret string
-		return ret
-	}
-	return *o.StorageType
-}
-
-// GetStorageTypeOk returns a tuple with the StorageType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ZoneCreateConfigAnyOf) GetStorageTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.StorageType) {
-		return nil, false
-	}
-	return o.StorageType, true
-}
-
-// IsSetStorageType returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetStorageType() bool {
-	if o != nil && !IsNil(o.StorageType) {
-		return true
-	}
-
-	return false
-}
-
-// SetStorageType gets a reference to the given string and assigns it to the StorageType field.
-func (o *ZoneCreateConfigAnyOf) SetStorageType(v string) {
-	o.StorageType = &v
-}
-
-// GetCertificateProvider returns the CertificateProvider field value if set, zero value otherwise.
-func (o *ZoneCreateConfigAnyOf) GetCertificateProvider() string {
-	if o == nil || IsNil(o.CertificateProvider) {
-		var ret string
-		return ret
-	}
-	return *o.CertificateProvider
-}
-
-// GetCertificateProviderOk returns a tuple with the CertificateProvider field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ZoneCreateConfigAnyOf) GetCertificateProviderOk() (*string, bool) {
-	if o == nil || IsNil(o.CertificateProvider) {
-		return nil, false
-	}
-	return o.CertificateProvider, true
-}
-
-// IsSetCertificateProvider returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetCertificateProvider() bool {
-	if o != nil && !IsNil(o.CertificateProvider) {
-		return true
-	}
-
-	return false
-}
-
-// SetCertificateProvider gets a reference to the given string and assigns it to the CertificateProvider field.
-func (o *ZoneCreateConfigAnyOf) SetCertificateProvider(v string) {
-	o.CertificateProvider = &v
-}
-
-// GetEnableVnc returns the EnableVnc field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ZoneCreateConfigAnyOf) GetEnableVnc() ZoneCreateConfigAnyOfEnableVnc {
-	if o == nil || IsNil(o.EnableVnc.Get()) {
-		var ret ZoneCreateConfigAnyOfEnableVnc
-		return ret
-	}
-	return *o.EnableVnc.Get()
-}
-
-// GetEnableVncOk returns a tuple with the EnableVnc field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ZoneCreateConfigAnyOf) GetEnableVncOk() (*ZoneCreateConfigAnyOfEnableVnc, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnableVnc.Get(), o.EnableVnc.IsSet()
-}
-
-// IsSetEnableVnc returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetEnableVnc() bool {
-	if o != nil && o.EnableVnc.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnableVnc gets a reference to the given NullableZoneCreateConfigAnyOfEnableVnc and assigns it to the EnableVnc field.
-func (o *ZoneCreateConfigAnyOf) SetEnableVnc(v ZoneCreateConfigAnyOfEnableVnc) {
-	o.EnableVnc.Set(&v)
-}
-
-// SetEnableVncNil sets the value for EnableVnc to be an explicit nil
-func (o *ZoneCreateConfigAnyOf) SetEnableVncNil() {
-	o.EnableVnc.Set(nil)
-}
-
-// UnsetEnableVnc ensures that no value is present for EnableVnc, not even an explicit nil
-func (o *ZoneCreateConfigAnyOf) UnsetEnableVnc() {
-	o.EnableVnc.Unset()
-}
-
-// GetHideHostSelection returns the HideHostSelection field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ZoneCreateConfigAnyOf) GetHideHostSelection() ZoneCreateConfigAnyOfHideHostSelection {
-	if o == nil || IsNil(o.HideHostSelection.Get()) {
-		var ret ZoneCreateConfigAnyOfHideHostSelection
-		return ret
-	}
-	return *o.HideHostSelection.Get()
-}
-
-// GetHideHostSelectionOk returns a tuple with the HideHostSelection field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ZoneCreateConfigAnyOf) GetHideHostSelectionOk() (*ZoneCreateConfigAnyOfHideHostSelection, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.HideHostSelection.Get(), o.HideHostSelection.IsSet()
-}
-
-// IsSetHideHostSelection returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetHideHostSelection() bool {
-	if o != nil && o.HideHostSelection.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHideHostSelection gets a reference to the given NullableZoneCreateConfigAnyOfHideHostSelection and assigns it to the HideHostSelection field.
-func (o *ZoneCreateConfigAnyOf) SetHideHostSelection(v ZoneCreateConfigAnyOfHideHostSelection) {
-	o.HideHostSelection.Set(&v)
-}
-
-// SetHideHostSelectionNil sets the value for HideHostSelection to be an explicit nil
-func (o *ZoneCreateConfigAnyOf) SetHideHostSelectionNil() {
-	o.HideHostSelection.Set(nil)
-}
-
-// UnsetHideHostSelection ensures that no value is present for HideHostSelection, not even an explicit nil
-func (o *ZoneCreateConfigAnyOf) UnsetHideHostSelection() {
-	o.HideHostSelection.Unset()
-}
-
-// GetEnableDiskTypeSelection returns the EnableDiskTypeSelection field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ZoneCreateConfigAnyOf) GetEnableDiskTypeSelection() ZoneCreateConfigAnyOfEnableDiskTypeSelection {
-	if o == nil || IsNil(o.EnableDiskTypeSelection.Get()) {
-		var ret ZoneCreateConfigAnyOfEnableDiskTypeSelection
-		return ret
-	}
-	return *o.EnableDiskTypeSelection.Get()
-}
-
-// GetEnableDiskTypeSelectionOk returns a tuple with the EnableDiskTypeSelection field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ZoneCreateConfigAnyOf) GetEnableDiskTypeSelectionOk() (*ZoneCreateConfigAnyOfEnableDiskTypeSelection, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnableDiskTypeSelection.Get(), o.EnableDiskTypeSelection.IsSet()
-}
-
-// IsSetEnableDiskTypeSelection returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetEnableDiskTypeSelection() bool {
-	if o != nil && o.EnableDiskTypeSelection.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnableDiskTypeSelection gets a reference to the given NullableZoneCreateConfigAnyOfEnableDiskTypeSelection and assigns it to the EnableDiskTypeSelection field.
-func (o *ZoneCreateConfigAnyOf) SetEnableDiskTypeSelection(v ZoneCreateConfigAnyOfEnableDiskTypeSelection) {
-	o.EnableDiskTypeSelection.Set(&v)
-}
-
-// SetEnableDiskTypeSelectionNil sets the value for EnableDiskTypeSelection to be an explicit nil
-func (o *ZoneCreateConfigAnyOf) SetEnableDiskTypeSelectionNil() {
-	o.EnableDiskTypeSelection.Set(nil)
-}
-
-// UnsetEnableDiskTypeSelection ensures that no value is present for EnableDiskTypeSelection, not even an explicit nil
-func (o *ZoneCreateConfigAnyOf) UnsetEnableDiskTypeSelection() {
-	o.EnableDiskTypeSelection.Unset()
-}
-
-// GetEnableStorageTypeSelection returns the EnableStorageTypeSelection field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ZoneCreateConfigAnyOf) GetEnableStorageTypeSelection() ZoneCreateConfigAnyOfEnableStorageTypeSelection {
-	if o == nil || IsNil(o.EnableStorageTypeSelection.Get()) {
-		var ret ZoneCreateConfigAnyOfEnableStorageTypeSelection
-		return ret
-	}
-	return *o.EnableStorageTypeSelection.Get()
-}
-
-// GetEnableStorageTypeSelectionOk returns a tuple with the EnableStorageTypeSelection field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ZoneCreateConfigAnyOf) GetEnableStorageTypeSelectionOk() (*ZoneCreateConfigAnyOfEnableStorageTypeSelection, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnableStorageTypeSelection.Get(), o.EnableStorageTypeSelection.IsSet()
-}
-
-// IsSetEnableStorageTypeSelection returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetEnableStorageTypeSelection() bool {
-	if o != nil && o.EnableStorageTypeSelection.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnableStorageTypeSelection gets a reference to the given NullableZoneCreateConfigAnyOfEnableStorageTypeSelection and assigns it to the EnableStorageTypeSelection field.
-func (o *ZoneCreateConfigAnyOf) SetEnableStorageTypeSelection(v ZoneCreateConfigAnyOfEnableStorageTypeSelection) {
-	o.EnableStorageTypeSelection.Set(&v)
-}
-
-// SetEnableStorageTypeSelectionNil sets the value for EnableStorageTypeSelection to be an explicit nil
-func (o *ZoneCreateConfigAnyOf) SetEnableStorageTypeSelectionNil() {
-	o.EnableStorageTypeSelection.Set(nil)
-}
-
-// UnsetEnableStorageTypeSelection ensures that no value is present for EnableStorageTypeSelection, not even an explicit nil
-func (o *ZoneCreateConfigAnyOf) UnsetEnableStorageTypeSelection() {
-	o.EnableStorageTypeSelection.Unset()
-}
-
-// GetEnableNetworkTypeSelection returns the EnableNetworkTypeSelection field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ZoneCreateConfigAnyOf) GetEnableNetworkTypeSelection() CloudCreateConfigVsphereEnableNetworkTypeSelection {
-	if o == nil || IsNil(o.EnableNetworkTypeSelection.Get()) {
-		var ret CloudCreateConfigVsphereEnableNetworkTypeSelection
-		return ret
-	}
-	return *o.EnableNetworkTypeSelection.Get()
-}
-
-// GetEnableNetworkTypeSelectionOk returns a tuple with the EnableNetworkTypeSelection field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ZoneCreateConfigAnyOf) GetEnableNetworkTypeSelectionOk() (*CloudCreateConfigVsphereEnableNetworkTypeSelection, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnableNetworkTypeSelection.Get(), o.EnableNetworkTypeSelection.IsSet()
-}
-
-// IsSetEnableNetworkTypeSelection returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetEnableNetworkTypeSelection() bool {
-	if o != nil && o.EnableNetworkTypeSelection.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnableNetworkTypeSelection gets a reference to the given NullableCloudCreateConfigVsphereEnableNetworkTypeSelection and assigns it to the EnableNetworkTypeSelection field.
-func (o *ZoneCreateConfigAnyOf) SetEnableNetworkTypeSelection(v CloudCreateConfigVsphereEnableNetworkTypeSelection) {
-	o.EnableNetworkTypeSelection.Set(&v)
-}
-
-// SetEnableNetworkTypeSelectionNil sets the value for EnableNetworkTypeSelection to be an explicit nil
-func (o *ZoneCreateConfigAnyOf) SetEnableNetworkTypeSelectionNil() {
-	o.EnableNetworkTypeSelection.Set(nil)
-}
-
-// UnsetEnableNetworkTypeSelection ensures that no value is present for EnableNetworkTypeSelection, not even an explicit nil
-func (o *ZoneCreateConfigAnyOf) UnsetEnableNetworkTypeSelection() {
-	o.EnableNetworkTypeSelection.Unset()
-}
-
-// GetUsername returns the Username field value if set, zero value otherwise.
-func (o *ZoneCreateConfigAnyOf) GetUsername() string {
-	if o == nil || IsNil(o.Username) {
-		var ret string
-		return ret
-	}
-	return *o.Username
-}
-
-// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ZoneCreateConfigAnyOf) GetUsernameOk() (*string, bool) {
-	if o == nil || IsNil(o.Username) {
-		return nil, false
-	}
-	return o.Username, true
-}
-
-// IsSetUsername returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetUsername() bool {
-	if o != nil && !IsNil(o.Username) {
-		return true
-	}
-
-	return false
-}
-
-// SetUsername gets a reference to the given string and assigns it to the Username field.
-func (o *ZoneCreateConfigAnyOf) SetUsername(v string) {
-	o.Username = &v
-}
-
-// GetPassword returns the Password field value if set, zero value otherwise.
-func (o *ZoneCreateConfigAnyOf) GetPassword() string {
-	if o == nil || IsNil(o.Password) {
-		var ret string
-		return ret
-	}
-	return *o.Password
-}
-
-// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ZoneCreateConfigAnyOf) GetPasswordOk() (*string, bool) {
-	if o == nil || IsNil(o.Password) {
-		return nil, false
-	}
-	return o.Password, true
-}
-
-// IsSetPassword returns a boolean if a field has been set.
-func (o *ZoneCreateConfigAnyOf) IsSetPassword() bool {
-	if o != nil && !IsNil(o.Password) {
-		return true
-	}
-
-	return false
-}
-
-// SetPassword gets a reference to the given string and assigns it to the Password field.
-func (o *ZoneCreateConfigAnyOf) SetPassword(v string) {
-	o.Password = &v
+// SetVpc gets a reference to the given string and assigns it to the Vpc field.
+func (o *ZoneCreateConfigAnyOf) SetVpc(v string) {
+	o.Vpc = &v
 }
 
 func (o ZoneCreateConfigAnyOf) MarshalJSON() ([]byte, error) {
@@ -847,47 +521,27 @@ func (o ZoneCreateConfigAnyOf) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ConsoleKeymap) {
 		toSerialize["consoleKeymap"] = o.ConsoleKeymap
 	}
-	toSerialize["apiUrl"] = o.ApiUrl
-	toSerialize["apiVersion"] = o.ApiVersion
-	toSerialize["datacenter"] = o.Datacenter
-	if !IsNil(o.Cluster) {
-		toSerialize["cluster"] = o.Cluster
+	toSerialize["endpoint"] = o.Endpoint
+	if !IsNil(o.AccessKey) {
+		toSerialize["accessKey"] = o.AccessKey
+	}
+	if !IsNil(o.SecretKey) {
+		toSerialize["secretKey"] = o.SecretKey
+	}
+	if !IsNil(o.UseHostCredentials) {
+		toSerialize["useHostCredentials"] = o.UseHostCredentials
+	}
+	if !IsNil(o.EbsEncryption) {
+		toSerialize["ebsEncryption"] = o.EbsEncryption
+	}
+	if !IsNil(o.StsAssumeRole) {
+		toSerialize["stsAssumeRole"] = o.StsAssumeRole
 	}
 	if !IsNil(o.ConfigManagementId) {
 		toSerialize["configManagementId"] = o.ConfigManagementId
 	}
-	if !IsNil(o.ResourcePool) {
-		toSerialize["resourcePool"] = o.ResourcePool
-	}
-	if o.RpcMode.IsSet() {
-		toSerialize["rpcMode"] = o.RpcMode.Get()
-	}
-	if !IsNil(o.StorageType) {
-		toSerialize["storageType"] = o.StorageType
-	}
-	if !IsNil(o.CertificateProvider) {
-		toSerialize["certificateProvider"] = o.CertificateProvider
-	}
-	if o.EnableVnc.IsSet() {
-		toSerialize["enableVnc"] = o.EnableVnc.Get()
-	}
-	if o.HideHostSelection.IsSet() {
-		toSerialize["hideHostSelection"] = o.HideHostSelection.Get()
-	}
-	if o.EnableDiskTypeSelection.IsSet() {
-		toSerialize["enableDiskTypeSelection"] = o.EnableDiskTypeSelection.Get()
-	}
-	if o.EnableStorageTypeSelection.IsSet() {
-		toSerialize["enableStorageTypeSelection"] = o.EnableStorageTypeSelection.Get()
-	}
-	if o.EnableNetworkTypeSelection.IsSet() {
-		toSerialize["enableNetworkTypeSelection"] = o.EnableNetworkTypeSelection.Get()
-	}
-	if !IsNil(o.Username) {
-		toSerialize["username"] = o.Username
-	}
-	if !IsNil(o.Password) {
-		toSerialize["password"] = o.Password
+	if !IsNil(o.Vpc) {
+		toSerialize["vpc"] = o.Vpc
 	}
 
 	for key, value := range o.AdditionalProperties {

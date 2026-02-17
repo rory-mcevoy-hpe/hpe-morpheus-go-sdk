@@ -21,11 +21,11 @@ var _ fmt.Stringer
 
 // ZoneCreateConfig Cloud configuration settings.
 type ZoneCreateConfig struct {
-	AddCloudsRequestZoneConfigAnyOf  *AddCloudsRequestZoneConfigAnyOf
-	AddCloudsRequestZoneConfigAnyOf1 *AddCloudsRequestZoneConfigAnyOf1
-	AddCloudsRequestZoneConfigAnyOf2 *AddCloudsRequestZoneConfigAnyOf2
-	ZoneCreateConfigAnyOf            *ZoneCreateConfigAnyOf
-	MapmapOfStringAny                *map[string]interface{}
+	ZoneCreateConfigAnyOf  *ZoneCreateConfigAnyOf
+	ZoneCreateConfigAnyOf1 *ZoneCreateConfigAnyOf1
+	ZoneCreateConfigAnyOf2 *ZoneCreateConfigAnyOf2
+	ZoneCreateConfigAnyOf3 *ZoneCreateConfigAnyOf3
+	MapmapOfStringAny      *map[string]interface{}
 }
 
 func (dst *ZoneCreateConfig) UnmarshalMapstructure(data any) (any, error) {
@@ -33,28 +33,28 @@ func (dst *ZoneCreateConfig) UnmarshalMapstructure(data any) (any, error) {
 		dst = &ZoneCreateConfig{}
 	}
 
-	mapstructDecode(data, &dst.AddCloudsRequestZoneConfigAnyOf)
-
-	if IsEmpty(dst.AddCloudsRequestZoneConfigAnyOf) {
-		dst.AddCloudsRequestZoneConfigAnyOf = nil
-	}
-
-	mapstructDecode(data, &dst.AddCloudsRequestZoneConfigAnyOf1)
-
-	if IsEmpty(dst.AddCloudsRequestZoneConfigAnyOf1) {
-		dst.AddCloudsRequestZoneConfigAnyOf1 = nil
-	}
-
-	mapstructDecode(data, &dst.AddCloudsRequestZoneConfigAnyOf2)
-
-	if IsEmpty(dst.AddCloudsRequestZoneConfigAnyOf2) {
-		dst.AddCloudsRequestZoneConfigAnyOf2 = nil
-	}
-
 	mapstructDecode(data, &dst.ZoneCreateConfigAnyOf)
 
 	if IsEmpty(dst.ZoneCreateConfigAnyOf) {
 		dst.ZoneCreateConfigAnyOf = nil
+	}
+
+	mapstructDecode(data, &dst.ZoneCreateConfigAnyOf1)
+
+	if IsEmpty(dst.ZoneCreateConfigAnyOf1) {
+		dst.ZoneCreateConfigAnyOf1 = nil
+	}
+
+	mapstructDecode(data, &dst.ZoneCreateConfigAnyOf2)
+
+	if IsEmpty(dst.ZoneCreateConfigAnyOf2) {
+		dst.ZoneCreateConfigAnyOf2 = nil
+	}
+
+	mapstructDecode(data, &dst.ZoneCreateConfigAnyOf3)
+
+	if IsEmpty(dst.ZoneCreateConfigAnyOf3) {
+		dst.ZoneCreateConfigAnyOf3 = nil
 	}
 
 	mapstructDecode(data, &dst.MapmapOfStringAny)
@@ -69,45 +69,6 @@ func (dst *ZoneCreateConfig) UnmarshalMapstructure(data any) (any, error) {
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *ZoneCreateConfig) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into AddCloudsRequestZoneConfigAnyOf
-	err = json.Unmarshal(data, &dst.AddCloudsRequestZoneConfigAnyOf)
-	if err == nil {
-		jsonAddCloudsRequestZoneConfigAnyOf, _ := json.Marshal(dst.AddCloudsRequestZoneConfigAnyOf)
-		if string(jsonAddCloudsRequestZoneConfigAnyOf) == "{}" { // empty struct
-			dst.AddCloudsRequestZoneConfigAnyOf = nil
-		} else {
-			return nil // data stored in dst.AddCloudsRequestZoneConfigAnyOf, return on the first match
-		}
-	} else {
-		dst.AddCloudsRequestZoneConfigAnyOf = nil
-	}
-
-	// try to unmarshal JSON data into AddCloudsRequestZoneConfigAnyOf1
-	err = json.Unmarshal(data, &dst.AddCloudsRequestZoneConfigAnyOf1)
-	if err == nil {
-		jsonAddCloudsRequestZoneConfigAnyOf1, _ := json.Marshal(dst.AddCloudsRequestZoneConfigAnyOf1)
-		if string(jsonAddCloudsRequestZoneConfigAnyOf1) == "{}" { // empty struct
-			dst.AddCloudsRequestZoneConfigAnyOf1 = nil
-		} else {
-			return nil // data stored in dst.AddCloudsRequestZoneConfigAnyOf1, return on the first match
-		}
-	} else {
-		dst.AddCloudsRequestZoneConfigAnyOf1 = nil
-	}
-
-	// try to unmarshal JSON data into AddCloudsRequestZoneConfigAnyOf2
-	err = json.Unmarshal(data, &dst.AddCloudsRequestZoneConfigAnyOf2)
-	if err == nil {
-		jsonAddCloudsRequestZoneConfigAnyOf2, _ := json.Marshal(dst.AddCloudsRequestZoneConfigAnyOf2)
-		if string(jsonAddCloudsRequestZoneConfigAnyOf2) == "{}" { // empty struct
-			dst.AddCloudsRequestZoneConfigAnyOf2 = nil
-		} else {
-			return nil // data stored in dst.AddCloudsRequestZoneConfigAnyOf2, return on the first match
-		}
-	} else {
-		dst.AddCloudsRequestZoneConfigAnyOf2 = nil
-	}
-
 	// try to unmarshal JSON data into ZoneCreateConfigAnyOf
 	err = json.Unmarshal(data, &dst.ZoneCreateConfigAnyOf)
 	if err == nil {
@@ -119,6 +80,45 @@ func (dst *ZoneCreateConfig) UnmarshalJSON(data []byte) error {
 		}
 	} else {
 		dst.ZoneCreateConfigAnyOf = nil
+	}
+
+	// try to unmarshal JSON data into ZoneCreateConfigAnyOf1
+	err = json.Unmarshal(data, &dst.ZoneCreateConfigAnyOf1)
+	if err == nil {
+		jsonZoneCreateConfigAnyOf1, _ := json.Marshal(dst.ZoneCreateConfigAnyOf1)
+		if string(jsonZoneCreateConfigAnyOf1) == "{}" { // empty struct
+			dst.ZoneCreateConfigAnyOf1 = nil
+		} else {
+			return nil // data stored in dst.ZoneCreateConfigAnyOf1, return on the first match
+		}
+	} else {
+		dst.ZoneCreateConfigAnyOf1 = nil
+	}
+
+	// try to unmarshal JSON data into ZoneCreateConfigAnyOf2
+	err = json.Unmarshal(data, &dst.ZoneCreateConfigAnyOf2)
+	if err == nil {
+		jsonZoneCreateConfigAnyOf2, _ := json.Marshal(dst.ZoneCreateConfigAnyOf2)
+		if string(jsonZoneCreateConfigAnyOf2) == "{}" { // empty struct
+			dst.ZoneCreateConfigAnyOf2 = nil
+		} else {
+			return nil // data stored in dst.ZoneCreateConfigAnyOf2, return on the first match
+		}
+	} else {
+		dst.ZoneCreateConfigAnyOf2 = nil
+	}
+
+	// try to unmarshal JSON data into ZoneCreateConfigAnyOf3
+	err = json.Unmarshal(data, &dst.ZoneCreateConfigAnyOf3)
+	if err == nil {
+		jsonZoneCreateConfigAnyOf3, _ := json.Marshal(dst.ZoneCreateConfigAnyOf3)
+		if string(jsonZoneCreateConfigAnyOf3) == "{}" { // empty struct
+			dst.ZoneCreateConfigAnyOf3 = nil
+		} else {
+			return nil // data stored in dst.ZoneCreateConfigAnyOf3, return on the first match
+		}
+	} else {
+		dst.ZoneCreateConfigAnyOf3 = nil
 	}
 
 	// try to unmarshal JSON data into MapmapOfStringAny
@@ -139,20 +139,20 @@ func (dst *ZoneCreateConfig) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src ZoneCreateConfig) MarshalJSON() ([]byte, error) {
-	if src.AddCloudsRequestZoneConfigAnyOf != nil {
-		return json.Marshal(&src.AddCloudsRequestZoneConfigAnyOf)
-	}
-
-	if src.AddCloudsRequestZoneConfigAnyOf1 != nil {
-		return json.Marshal(&src.AddCloudsRequestZoneConfigAnyOf1)
-	}
-
-	if src.AddCloudsRequestZoneConfigAnyOf2 != nil {
-		return json.Marshal(&src.AddCloudsRequestZoneConfigAnyOf2)
-	}
-
 	if src.ZoneCreateConfigAnyOf != nil {
 		return json.Marshal(&src.ZoneCreateConfigAnyOf)
+	}
+
+	if src.ZoneCreateConfigAnyOf1 != nil {
+		return json.Marshal(&src.ZoneCreateConfigAnyOf1)
+	}
+
+	if src.ZoneCreateConfigAnyOf2 != nil {
+		return json.Marshal(&src.ZoneCreateConfigAnyOf2)
+	}
+
+	if src.ZoneCreateConfigAnyOf3 != nil {
+		return json.Marshal(&src.ZoneCreateConfigAnyOf3)
 	}
 
 	if src.MapmapOfStringAny != nil {

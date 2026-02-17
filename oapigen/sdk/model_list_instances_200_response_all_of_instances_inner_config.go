@@ -25,6 +25,7 @@ type ListInstances200ResponseAllOfInstancesInnerConfig struct {
 	IsVpcSelectable      *bool                                                                  `json:"isVpcSelectable,omitempty"`
 	NoAgent              *ListInstances200ResponseAllOfInstancesInnerConfigNoAgent              `json:"noAgent,omitempty"`
 	SecurityGroups       []ListInstances200ResponseAllOfInstancesInnerConfigSecurityGroupsInner `json:"securityGroups,omitempty"`
+	KvmHostId            NullableInt64                                                          `json:"kvmHostId,omitempty"`
 	SmbiosAssetTag       NullableString                                                         `json:"smbiosAssetTag,omitempty"`
 	NestedVirtualization NullableString                                                         `json:"nestedVirtualization,omitempty"`
 	VmwareFolderId       *string                                                                `json:"vmwareFolderId,omitempty"`
@@ -37,9 +38,9 @@ type ListInstances200ResponseAllOfInstancesInnerConfig struct {
 	Name                 *string                                                                `json:"name,omitempty"`
 	HostName             *string                                                                `json:"hostName,omitempty"`
 	InstanceType         *ListInstances200ResponseAllOfInstancesInnerConfigInstanceType         `json:"instanceType,omitempty"`
-	Site                 *GetAlerts200ResponseAllOfChecksInnerAccount                           `json:"site,omitempty"`
+	Site                 *ListInstances200ResponseAllOfInstancesInnerConfigSite                 `json:"site,omitempty"`
 	EnvironmentPrefix    NullableString                                                         `json:"environmentPrefix,omitempty"`
-	Layout               *ListImageBuilds200ResponseAllOfImageBuildsInnerConfigPlan             `json:"layout,omitempty"`
+	Layout               *ListInstances200ResponseAllOfInstancesInnerConfigLayout               `json:"layout,omitempty"`
 	Type                 *string                                                                `json:"type,omitempty"`
 	InstanceContext      *string                                                                `json:"instanceContext,omitempty"`
 	MemoryDisplay        *string                                                                `json:"memoryDisplay,omitempty"`
@@ -229,6 +230,49 @@ func (o *ListInstances200ResponseAllOfInstancesInnerConfig) IsSetSecurityGroups(
 // SetSecurityGroups gets a reference to the given []ListInstances200ResponseAllOfInstancesInnerConfigSecurityGroupsInner and assigns it to the SecurityGroups field.
 func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetSecurityGroups(v []ListInstances200ResponseAllOfInstancesInnerConfigSecurityGroupsInner) {
 	o.SecurityGroups = v
+}
+
+// GetKvmHostId returns the KvmHostId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetKvmHostId() int64 {
+	if o == nil || IsNil(o.KvmHostId.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.KvmHostId.Get()
+}
+
+// GetKvmHostIdOk returns a tuple with the KvmHostId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetKvmHostIdOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.KvmHostId.Get(), o.KvmHostId.IsSet()
+}
+
+// IsSetKvmHostId returns a boolean if a field has been set.
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) IsSetKvmHostId() bool {
+	if o != nil && o.KvmHostId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetKvmHostId gets a reference to the given NullableInt64 and assigns it to the KvmHostId field.
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetKvmHostId(v int64) {
+	o.KvmHostId.Set(&v)
+}
+
+// SetKvmHostIdNil sets the value for KvmHostId to be an explicit nil
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetKvmHostIdNil() {
+	o.KvmHostId.Set(nil)
+}
+
+// UnsetKvmHostId ensures that no value is present for KvmHostId, not even an explicit nil
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) UnsetKvmHostId() {
+	o.KvmHostId.Unset()
 }
 
 // GetSmbiosAssetTag returns the SmbiosAssetTag field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -649,9 +693,9 @@ func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetInstanceType(v Li
 }
 
 // GetSite returns the Site field value if set, zero value otherwise.
-func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetSite() GetAlerts200ResponseAllOfChecksInnerAccount {
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetSite() ListInstances200ResponseAllOfInstancesInnerConfigSite {
 	if o == nil || IsNil(o.Site) {
-		var ret GetAlerts200ResponseAllOfChecksInnerAccount
+		var ret ListInstances200ResponseAllOfInstancesInnerConfigSite
 		return ret
 	}
 	return *o.Site
@@ -659,7 +703,7 @@ func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetSite() GetAlerts2
 
 // GetSiteOk returns a tuple with the Site field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetSiteOk() (*GetAlerts200ResponseAllOfChecksInnerAccount, bool) {
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetSiteOk() (*ListInstances200ResponseAllOfInstancesInnerConfigSite, bool) {
 	if o == nil || IsNil(o.Site) {
 		return nil, false
 	}
@@ -675,8 +719,8 @@ func (o *ListInstances200ResponseAllOfInstancesInnerConfig) IsSetSite() bool {
 	return false
 }
 
-// SetSite gets a reference to the given GetAlerts200ResponseAllOfChecksInnerAccount and assigns it to the Site field.
-func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetSite(v GetAlerts200ResponseAllOfChecksInnerAccount) {
+// SetSite gets a reference to the given ListInstances200ResponseAllOfInstancesInnerConfigSite and assigns it to the Site field.
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetSite(v ListInstances200ResponseAllOfInstancesInnerConfigSite) {
 	o.Site = &v
 }
 
@@ -724,9 +768,9 @@ func (o *ListInstances200ResponseAllOfInstancesInnerConfig) UnsetEnvironmentPref
 }
 
 // GetLayout returns the Layout field value if set, zero value otherwise.
-func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetLayout() ListImageBuilds200ResponseAllOfImageBuildsInnerConfigPlan {
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetLayout() ListInstances200ResponseAllOfInstancesInnerConfigLayout {
 	if o == nil || IsNil(o.Layout) {
-		var ret ListImageBuilds200ResponseAllOfImageBuildsInnerConfigPlan
+		var ret ListInstances200ResponseAllOfInstancesInnerConfigLayout
 		return ret
 	}
 	return *o.Layout
@@ -734,7 +778,7 @@ func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetLayout() ListImag
 
 // GetLayoutOk returns a tuple with the Layout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetLayoutOk() (*ListImageBuilds200ResponseAllOfImageBuildsInnerConfigPlan, bool) {
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetLayoutOk() (*ListInstances200ResponseAllOfInstancesInnerConfigLayout, bool) {
 	if o == nil || IsNil(o.Layout) {
 		return nil, false
 	}
@@ -750,8 +794,8 @@ func (o *ListInstances200ResponseAllOfInstancesInnerConfig) IsSetLayout() bool {
 	return false
 }
 
-// SetLayout gets a reference to the given ListImageBuilds200ResponseAllOfImageBuildsInnerConfigPlan and assigns it to the Layout field.
-func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetLayout(v ListImageBuilds200ResponseAllOfImageBuildsInnerConfigPlan) {
+// SetLayout gets a reference to the given ListInstances200ResponseAllOfInstancesInnerConfigLayout and assigns it to the Layout field.
+func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetLayout(v ListInstances200ResponseAllOfInstancesInnerConfigLayout) {
 	o.Layout = &v
 }
 
@@ -1068,6 +1112,9 @@ func (o ListInstances200ResponseAllOfInstancesInnerConfig) ToMap() (map[string]i
 	}
 	if !IsNil(o.SecurityGroups) {
 		toSerialize["securityGroups"] = o.SecurityGroups
+	}
+	if o.KvmHostId.IsSet() {
+		toSerialize["kvmHostId"] = o.KvmHostId.Get()
 	}
 	if o.SmbiosAssetTag.IsSet() {
 		toSerialize["smbiosAssetTag"] = o.SmbiosAssetTag.Get()

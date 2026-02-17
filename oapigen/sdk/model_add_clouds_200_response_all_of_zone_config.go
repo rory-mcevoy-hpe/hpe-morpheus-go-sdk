@@ -21,9 +21,9 @@ var _ fmt.Stringer
 
 // AddClouds200ResponseAllOfZoneConfig struct for AddClouds200ResponseAllOfZoneConfig
 type AddClouds200ResponseAllOfZoneConfig struct {
-	ListClouds200ResponseAllOfZonesInnerConfigAnyOf  *ListClouds200ResponseAllOfZonesInnerConfigAnyOf
-	ListClouds200ResponseAllOfZonesInnerConfigAnyOf1 *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1
-	MapmapOfStringAny                                *map[string]interface{}
+	AddClouds200ResponseAllOfZoneConfigAnyOf  *AddClouds200ResponseAllOfZoneConfigAnyOf
+	AddClouds200ResponseAllOfZoneConfigAnyOf1 *AddClouds200ResponseAllOfZoneConfigAnyOf1
+	MapmapOfStringAny                         *map[string]interface{}
 }
 
 func (dst *AddClouds200ResponseAllOfZoneConfig) UnmarshalMapstructure(data any) (any, error) {
@@ -31,16 +31,16 @@ func (dst *AddClouds200ResponseAllOfZoneConfig) UnmarshalMapstructure(data any) 
 		dst = &AddClouds200ResponseAllOfZoneConfig{}
 	}
 
-	mapstructDecode(data, &dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf)
+	mapstructDecode(data, &dst.AddClouds200ResponseAllOfZoneConfigAnyOf)
 
-	if IsEmpty(dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf) {
-		dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf = nil
+	if IsEmpty(dst.AddClouds200ResponseAllOfZoneConfigAnyOf) {
+		dst.AddClouds200ResponseAllOfZoneConfigAnyOf = nil
 	}
 
-	mapstructDecode(data, &dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf1)
+	mapstructDecode(data, &dst.AddClouds200ResponseAllOfZoneConfigAnyOf1)
 
-	if IsEmpty(dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) {
-		dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf1 = nil
+	if IsEmpty(dst.AddClouds200ResponseAllOfZoneConfigAnyOf1) {
+		dst.AddClouds200ResponseAllOfZoneConfigAnyOf1 = nil
 	}
 
 	mapstructDecode(data, &dst.MapmapOfStringAny)
@@ -55,30 +55,30 @@ func (dst *AddClouds200ResponseAllOfZoneConfig) UnmarshalMapstructure(data any) 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *AddClouds200ResponseAllOfZoneConfig) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into ListClouds200ResponseAllOfZonesInnerConfigAnyOf
-	err = json.Unmarshal(data, &dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf)
+	// try to unmarshal JSON data into AddClouds200ResponseAllOfZoneConfigAnyOf
+	err = json.Unmarshal(data, &dst.AddClouds200ResponseAllOfZoneConfigAnyOf)
 	if err == nil {
-		jsonListClouds200ResponseAllOfZonesInnerConfigAnyOf, _ := json.Marshal(dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf)
-		if string(jsonListClouds200ResponseAllOfZonesInnerConfigAnyOf) == "{}" { // empty struct
-			dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf = nil
+		jsonAddClouds200ResponseAllOfZoneConfigAnyOf, _ := json.Marshal(dst.AddClouds200ResponseAllOfZoneConfigAnyOf)
+		if string(jsonAddClouds200ResponseAllOfZoneConfigAnyOf) == "{}" { // empty struct
+			dst.AddClouds200ResponseAllOfZoneConfigAnyOf = nil
 		} else {
-			return nil // data stored in dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf, return on the first match
+			return nil // data stored in dst.AddClouds200ResponseAllOfZoneConfigAnyOf, return on the first match
 		}
 	} else {
-		dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf = nil
+		dst.AddClouds200ResponseAllOfZoneConfigAnyOf = nil
 	}
 
-	// try to unmarshal JSON data into ListClouds200ResponseAllOfZonesInnerConfigAnyOf1
-	err = json.Unmarshal(data, &dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf1)
+	// try to unmarshal JSON data into AddClouds200ResponseAllOfZoneConfigAnyOf1
+	err = json.Unmarshal(data, &dst.AddClouds200ResponseAllOfZoneConfigAnyOf1)
 	if err == nil {
-		jsonListClouds200ResponseAllOfZonesInnerConfigAnyOf1, _ := json.Marshal(dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf1)
-		if string(jsonListClouds200ResponseAllOfZonesInnerConfigAnyOf1) == "{}" { // empty struct
-			dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf1 = nil
+		jsonAddClouds200ResponseAllOfZoneConfigAnyOf1, _ := json.Marshal(dst.AddClouds200ResponseAllOfZoneConfigAnyOf1)
+		if string(jsonAddClouds200ResponseAllOfZoneConfigAnyOf1) == "{}" { // empty struct
+			dst.AddClouds200ResponseAllOfZoneConfigAnyOf1 = nil
 		} else {
-			return nil // data stored in dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf1, return on the first match
+			return nil // data stored in dst.AddClouds200ResponseAllOfZoneConfigAnyOf1, return on the first match
 		}
 	} else {
-		dst.ListClouds200ResponseAllOfZonesInnerConfigAnyOf1 = nil
+		dst.AddClouds200ResponseAllOfZoneConfigAnyOf1 = nil
 	}
 
 	// try to unmarshal JSON data into MapmapOfStringAny
@@ -99,12 +99,12 @@ func (dst *AddClouds200ResponseAllOfZoneConfig) UnmarshalJSON(data []byte) error
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src AddClouds200ResponseAllOfZoneConfig) MarshalJSON() ([]byte, error) {
-	if src.ListClouds200ResponseAllOfZonesInnerConfigAnyOf != nil {
-		return json.Marshal(&src.ListClouds200ResponseAllOfZonesInnerConfigAnyOf)
+	if src.AddClouds200ResponseAllOfZoneConfigAnyOf != nil {
+		return json.Marshal(&src.AddClouds200ResponseAllOfZoneConfigAnyOf)
 	}
 
-	if src.ListClouds200ResponseAllOfZonesInnerConfigAnyOf1 != nil {
-		return json.Marshal(&src.ListClouds200ResponseAllOfZonesInnerConfigAnyOf1)
+	if src.AddClouds200ResponseAllOfZoneConfigAnyOf1 != nil {
+		return json.Marshal(&src.AddClouds200ResponseAllOfZoneConfigAnyOf1)
 	}
 
 	if src.MapmapOfStringAny != nil {

@@ -22,19 +22,19 @@ Name | Type | Description | Notes
 **ClientId** | Pointer to **string** | Azure client id | [optional] 
 **ClientSecret** | Pointer to **string** | Azure client secret | [optional] 
 **ResourceGroup** | Pointer to **string** | Azure resource group | [optional] 
-**RpcMode** | Pointer to [**NullableCloudCreateConfigVsphereRpcMode**](CloudCreateConfigVsphereRpcMode.md) |  | [optional] [default to guestexec]
+**RpcMode** | Pointer to [**NullableZoneCreateConfigAnyOf3RpcMode**](ZoneCreateConfigAnyOf3RpcMode.md) |  | [optional] 
 **CertificateProvider** | Pointer to **string** | Certificate provider | [optional] [default to "internal"]
-**EnableNetworkTypeSelection** | Pointer to [**NullableCloudCreateConfigVsphereEnableNetworkTypeSelection**](CloudCreateConfigVsphereEnableNetworkTypeSelection.md) |  | [optional] 
+**EnableNetworkTypeSelection** | Pointer to [**NullableZoneCreateConfigAnyOf3EnableNetworkTypeSelection**](ZoneCreateConfigAnyOf3EnableNetworkTypeSelection.md) |  | [optional] 
 **ApiUrl** | **string** | The SDK URL of the vCenter server. | 
 **ApiVersion** | **string** | The SDK version of the vCenter server. | 
 **Datacenter** | **string** | The vSphere datacenter to add. | 
 **Cluster** | Pointer to **string** | The name of the vSphere cluster | [optional] [default to "all"]
 **ResourcePool** | Pointer to **string** | The name of the vSphere resource pool | [optional] 
 **StorageType** | Pointer to **string** | The default vSphere VMDK type for virtual machines | [optional] [default to "thin"]
-**EnableVnc** | Pointer to [**NullableZoneCreateConfigAnyOfEnableVnc**](ZoneCreateConfigAnyOfEnableVnc.md) |  | [optional] 
-**HideHostSelection** | Pointer to [**NullableZoneCreateConfigAnyOfHideHostSelection**](ZoneCreateConfigAnyOfHideHostSelection.md) |  | [optional] 
-**EnableDiskTypeSelection** | Pointer to [**NullableZoneCreateConfigAnyOfEnableDiskTypeSelection**](ZoneCreateConfigAnyOfEnableDiskTypeSelection.md) |  | [optional] 
-**EnableStorageTypeSelection** | Pointer to [**NullableZoneCreateConfigAnyOfEnableStorageTypeSelection**](ZoneCreateConfigAnyOfEnableStorageTypeSelection.md) |  | [optional] 
+**EnableVnc** | Pointer to [**NullableZoneCreateConfigAnyOf3EnableVnc**](ZoneCreateConfigAnyOf3EnableVnc.md) |  | [optional] 
+**HideHostSelection** | Pointer to [**NullableZoneCreateConfigAnyOf3HideHostSelection**](ZoneCreateConfigAnyOf3HideHostSelection.md) |  | [optional] 
+**EnableDiskTypeSelection** | Pointer to [**NullableZoneCreateConfigAnyOf3EnableDiskTypeSelection**](ZoneCreateConfigAnyOf3EnableDiskTypeSelection.md) |  | [optional] 
+**EnableStorageTypeSelection** | Pointer to [**NullableZoneCreateConfigAnyOf3EnableStorageTypeSelection**](ZoneCreateConfigAnyOf3EnableStorageTypeSelection.md) |  | [optional] 
 **Username** | Pointer to **string** | Username. | [optional] 
 **Password** | Pointer to **string** | Password to apply to the user | [optional] 
 
@@ -504,20 +504,20 @@ HasResourceGroup returns a boolean if a field has been set.
 
 ### GetRpcMode
 
-`func (o *ZoneCreateConfig) GetRpcMode() CloudCreateConfigVsphereRpcMode`
+`func (o *ZoneCreateConfig) GetRpcMode() ZoneCreateConfigAnyOf3RpcMode`
 
 GetRpcMode returns the RpcMode field if non-nil, zero value otherwise.
 
 ### GetRpcModeOk
 
-`func (o *ZoneCreateConfig) GetRpcModeOk() (*CloudCreateConfigVsphereRpcMode, bool)`
+`func (o *ZoneCreateConfig) GetRpcModeOk() (*ZoneCreateConfigAnyOf3RpcMode, bool)`
 
 GetRpcModeOk returns a tuple with the RpcMode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRpcMode
 
-`func (o *ZoneCreateConfig) SetRpcMode(v CloudCreateConfigVsphereRpcMode)`
+`func (o *ZoneCreateConfig) SetRpcMode(v ZoneCreateConfigAnyOf3RpcMode)`
 
 SetRpcMode sets RpcMode field to given value.
 
@@ -564,20 +564,20 @@ HasCertificateProvider returns a boolean if a field has been set.
 
 ### GetEnableNetworkTypeSelection
 
-`func (o *ZoneCreateConfig) GetEnableNetworkTypeSelection() CloudCreateConfigVsphereEnableNetworkTypeSelection`
+`func (o *ZoneCreateConfig) GetEnableNetworkTypeSelection() ZoneCreateConfigAnyOf3EnableNetworkTypeSelection`
 
 GetEnableNetworkTypeSelection returns the EnableNetworkTypeSelection field if non-nil, zero value otherwise.
 
 ### GetEnableNetworkTypeSelectionOk
 
-`func (o *ZoneCreateConfig) GetEnableNetworkTypeSelectionOk() (*CloudCreateConfigVsphereEnableNetworkTypeSelection, bool)`
+`func (o *ZoneCreateConfig) GetEnableNetworkTypeSelectionOk() (*ZoneCreateConfigAnyOf3EnableNetworkTypeSelection, bool)`
 
 GetEnableNetworkTypeSelectionOk returns a tuple with the EnableNetworkTypeSelection field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnableNetworkTypeSelection
 
-`func (o *ZoneCreateConfig) SetEnableNetworkTypeSelection(v CloudCreateConfigVsphereEnableNetworkTypeSelection)`
+`func (o *ZoneCreateConfig) SetEnableNetworkTypeSelection(v ZoneCreateConfigAnyOf3EnableNetworkTypeSelection)`
 
 SetEnableNetworkTypeSelection sets EnableNetworkTypeSelection field to given value.
 
@@ -734,20 +734,20 @@ HasStorageType returns a boolean if a field has been set.
 
 ### GetEnableVnc
 
-`func (o *ZoneCreateConfig) GetEnableVnc() ZoneCreateConfigAnyOfEnableVnc`
+`func (o *ZoneCreateConfig) GetEnableVnc() ZoneCreateConfigAnyOf3EnableVnc`
 
 GetEnableVnc returns the EnableVnc field if non-nil, zero value otherwise.
 
 ### GetEnableVncOk
 
-`func (o *ZoneCreateConfig) GetEnableVncOk() (*ZoneCreateConfigAnyOfEnableVnc, bool)`
+`func (o *ZoneCreateConfig) GetEnableVncOk() (*ZoneCreateConfigAnyOf3EnableVnc, bool)`
 
 GetEnableVncOk returns a tuple with the EnableVnc field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnableVnc
 
-`func (o *ZoneCreateConfig) SetEnableVnc(v ZoneCreateConfigAnyOfEnableVnc)`
+`func (o *ZoneCreateConfig) SetEnableVnc(v ZoneCreateConfigAnyOf3EnableVnc)`
 
 SetEnableVnc sets EnableVnc field to given value.
 
@@ -769,20 +769,20 @@ HasEnableVnc returns a boolean if a field has been set.
 UnsetEnableVnc ensures that no value is present for EnableVnc, not even an explicit nil
 ### GetHideHostSelection
 
-`func (o *ZoneCreateConfig) GetHideHostSelection() ZoneCreateConfigAnyOfHideHostSelection`
+`func (o *ZoneCreateConfig) GetHideHostSelection() ZoneCreateConfigAnyOf3HideHostSelection`
 
 GetHideHostSelection returns the HideHostSelection field if non-nil, zero value otherwise.
 
 ### GetHideHostSelectionOk
 
-`func (o *ZoneCreateConfig) GetHideHostSelectionOk() (*ZoneCreateConfigAnyOfHideHostSelection, bool)`
+`func (o *ZoneCreateConfig) GetHideHostSelectionOk() (*ZoneCreateConfigAnyOf3HideHostSelection, bool)`
 
 GetHideHostSelectionOk returns a tuple with the HideHostSelection field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHideHostSelection
 
-`func (o *ZoneCreateConfig) SetHideHostSelection(v ZoneCreateConfigAnyOfHideHostSelection)`
+`func (o *ZoneCreateConfig) SetHideHostSelection(v ZoneCreateConfigAnyOf3HideHostSelection)`
 
 SetHideHostSelection sets HideHostSelection field to given value.
 
@@ -804,20 +804,20 @@ HasHideHostSelection returns a boolean if a field has been set.
 UnsetHideHostSelection ensures that no value is present for HideHostSelection, not even an explicit nil
 ### GetEnableDiskTypeSelection
 
-`func (o *ZoneCreateConfig) GetEnableDiskTypeSelection() ZoneCreateConfigAnyOfEnableDiskTypeSelection`
+`func (o *ZoneCreateConfig) GetEnableDiskTypeSelection() ZoneCreateConfigAnyOf3EnableDiskTypeSelection`
 
 GetEnableDiskTypeSelection returns the EnableDiskTypeSelection field if non-nil, zero value otherwise.
 
 ### GetEnableDiskTypeSelectionOk
 
-`func (o *ZoneCreateConfig) GetEnableDiskTypeSelectionOk() (*ZoneCreateConfigAnyOfEnableDiskTypeSelection, bool)`
+`func (o *ZoneCreateConfig) GetEnableDiskTypeSelectionOk() (*ZoneCreateConfigAnyOf3EnableDiskTypeSelection, bool)`
 
 GetEnableDiskTypeSelectionOk returns a tuple with the EnableDiskTypeSelection field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnableDiskTypeSelection
 
-`func (o *ZoneCreateConfig) SetEnableDiskTypeSelection(v ZoneCreateConfigAnyOfEnableDiskTypeSelection)`
+`func (o *ZoneCreateConfig) SetEnableDiskTypeSelection(v ZoneCreateConfigAnyOf3EnableDiskTypeSelection)`
 
 SetEnableDiskTypeSelection sets EnableDiskTypeSelection field to given value.
 
@@ -839,20 +839,20 @@ HasEnableDiskTypeSelection returns a boolean if a field has been set.
 UnsetEnableDiskTypeSelection ensures that no value is present for EnableDiskTypeSelection, not even an explicit nil
 ### GetEnableStorageTypeSelection
 
-`func (o *ZoneCreateConfig) GetEnableStorageTypeSelection() ZoneCreateConfigAnyOfEnableStorageTypeSelection`
+`func (o *ZoneCreateConfig) GetEnableStorageTypeSelection() ZoneCreateConfigAnyOf3EnableStorageTypeSelection`
 
 GetEnableStorageTypeSelection returns the EnableStorageTypeSelection field if non-nil, zero value otherwise.
 
 ### GetEnableStorageTypeSelectionOk
 
-`func (o *ZoneCreateConfig) GetEnableStorageTypeSelectionOk() (*ZoneCreateConfigAnyOfEnableStorageTypeSelection, bool)`
+`func (o *ZoneCreateConfig) GetEnableStorageTypeSelectionOk() (*ZoneCreateConfigAnyOf3EnableStorageTypeSelection, bool)`
 
 GetEnableStorageTypeSelectionOk returns a tuple with the EnableStorageTypeSelection field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnableStorageTypeSelection
 
-`func (o *ZoneCreateConfig) SetEnableStorageTypeSelection(v ZoneCreateConfigAnyOfEnableStorageTypeSelection)`
+`func (o *ZoneCreateConfig) SetEnableStorageTypeSelection(v ZoneCreateConfigAnyOf3EnableStorageTypeSelection)`
 
 SetEnableStorageTypeSelection sets EnableStorageTypeSelection field to given value.
 

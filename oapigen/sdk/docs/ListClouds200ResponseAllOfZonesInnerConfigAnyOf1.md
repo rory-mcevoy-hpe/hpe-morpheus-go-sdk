@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **HideHostSelection** | Pointer to **NullableString** |  | [optional] 
 **ImportExisting** | Pointer to **NullableString** |  | [optional] 
 **KubeUrl** | Pointer to **NullableString** |  | [optional] 
-**NetworkServer** | Pointer to [**ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer**](ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer.md) |  | [optional] 
+**NetworkServer** | Pointer to [**ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer**](ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer.md) |  | [optional] 
 **NetworkServerId** | Pointer to **string** |  | [optional] 
 **Password** | Pointer to **NullableString** |  | [optional] 
 **PasswordHash** | Pointer to **NullableString** |  | [optional] 
@@ -960,20 +960,20 @@ HasKubeUrl returns a boolean if a field has been set.
 UnsetKubeUrl ensures that no value is present for KubeUrl, not even an explicit nil
 ### GetNetworkServer
 
-`func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) GetNetworkServer() ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer`
+`func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) GetNetworkServer() ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer`
 
 GetNetworkServer returns the NetworkServer field if non-nil, zero value otherwise.
 
 ### GetNetworkServerOk
 
-`func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) GetNetworkServerOk() (*ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer, bool)`
+`func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) GetNetworkServerOk() (*ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer, bool)`
 
 GetNetworkServerOk returns a tuple with the NetworkServer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetworkServer
 
-`func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) SetNetworkServer(v ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer)`
+`func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) SetNetworkServer(v ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer)`
 
 SetNetworkServer sets NetworkServer field to given value.
 

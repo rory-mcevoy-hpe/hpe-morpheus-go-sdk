@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **IsVpcSelectable** | Pointer to **bool** |  | [optional] 
 **NoAgent** | Pointer to [**ListInstances200ResponseAllOfInstancesInnerConfigNoAgent**](ListInstances200ResponseAllOfInstancesInnerConfigNoAgent.md) |  | [optional] 
 **SecurityGroups** | Pointer to [**[]ListInstances200ResponseAllOfInstancesInnerConfigSecurityGroupsInner**](ListInstances200ResponseAllOfInstancesInnerConfigSecurityGroupsInner.md) |  | [optional] 
+**KvmHostId** | Pointer to **NullableInt64** |  | [optional] 
 **SmbiosAssetTag** | Pointer to **NullableString** |  | [optional] 
 **NestedVirtualization** | Pointer to **NullableString** |  | [optional] 
 **VmwareFolderId** | Pointer to **string** |  | [optional] 
@@ -21,9 +22,9 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **HostName** | Pointer to **string** |  | [optional] 
 **InstanceType** | Pointer to [**ListInstances200ResponseAllOfInstancesInnerConfigInstanceType**](ListInstances200ResponseAllOfInstancesInnerConfigInstanceType.md) |  | [optional] 
-**Site** | Pointer to [**GetAlerts200ResponseAllOfChecksInnerAccount**](GetAlerts200ResponseAllOfChecksInnerAccount.md) |  | [optional] 
+**Site** | Pointer to [**ListInstances200ResponseAllOfInstancesInnerConfigSite**](ListInstances200ResponseAllOfInstancesInnerConfigSite.md) |  | [optional] 
 **EnvironmentPrefix** | Pointer to **NullableString** |  | [optional] 
-**Layout** | Pointer to [**ListImageBuilds200ResponseAllOfImageBuildsInnerConfigPlan**](ListImageBuilds200ResponseAllOfImageBuildsInnerConfigPlan.md) |  | [optional] 
+**Layout** | Pointer to [**ListInstances200ResponseAllOfInstancesInnerConfigLayout**](ListInstances200ResponseAllOfInstancesInnerConfigLayout.md) |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **InstanceContext** | Pointer to **string** |  | [optional] 
 **MemoryDisplay** | Pointer to **string** |  | [optional] 
@@ -178,6 +179,41 @@ SetSecurityGroups sets SecurityGroups field to given value.
 
 HasSecurityGroups returns a boolean if a field has been set.
 
+### GetKvmHostId
+
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetKvmHostId() int64`
+
+GetKvmHostId returns the KvmHostId field if non-nil, zero value otherwise.
+
+### GetKvmHostIdOk
+
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetKvmHostIdOk() (*int64, bool)`
+
+GetKvmHostIdOk returns a tuple with the KvmHostId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKvmHostId
+
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetKvmHostId(v int64)`
+
+SetKvmHostId sets KvmHostId field to given value.
+
+### HasKvmHostId
+
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) HasKvmHostId() bool`
+
+HasKvmHostId returns a boolean if a field has been set.
+
+### SetKvmHostIdNil
+
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetKvmHostIdNil(b bool)`
+
+ SetKvmHostIdNil sets the value for KvmHostId to be an explicit nil
+
+### UnsetKvmHostId
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) UnsetKvmHostId()`
+
+UnsetKvmHostId ensures that no value is present for KvmHostId, not even an explicit nil
 ### GetSmbiosAssetTag
 
 `func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetSmbiosAssetTag() string`
@@ -510,20 +546,20 @@ HasInstanceType returns a boolean if a field has been set.
 
 ### GetSite
 
-`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetSite() GetAlerts200ResponseAllOfChecksInnerAccount`
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetSite() ListInstances200ResponseAllOfInstancesInnerConfigSite`
 
 GetSite returns the Site field if non-nil, zero value otherwise.
 
 ### GetSiteOk
 
-`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetSiteOk() (*GetAlerts200ResponseAllOfChecksInnerAccount, bool)`
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetSiteOk() (*ListInstances200ResponseAllOfInstancesInnerConfigSite, bool)`
 
 GetSiteOk returns a tuple with the Site field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSite
 
-`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetSite(v GetAlerts200ResponseAllOfChecksInnerAccount)`
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetSite(v ListInstances200ResponseAllOfInstancesInnerConfigSite)`
 
 SetSite sets Site field to given value.
 
@@ -570,20 +606,20 @@ HasEnvironmentPrefix returns a boolean if a field has been set.
 UnsetEnvironmentPrefix ensures that no value is present for EnvironmentPrefix, not even an explicit nil
 ### GetLayout
 
-`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetLayout() ListImageBuilds200ResponseAllOfImageBuildsInnerConfigPlan`
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetLayout() ListInstances200ResponseAllOfInstancesInnerConfigLayout`
 
 GetLayout returns the Layout field if non-nil, zero value otherwise.
 
 ### GetLayoutOk
 
-`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetLayoutOk() (*ListImageBuilds200ResponseAllOfImageBuildsInnerConfigPlan, bool)`
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) GetLayoutOk() (*ListInstances200ResponseAllOfInstancesInnerConfigLayout, bool)`
 
 GetLayoutOk returns a tuple with the Layout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLayout
 
-`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetLayout(v ListImageBuilds200ResponseAllOfImageBuildsInnerConfigPlan)`
+`func (o *ListInstances200ResponseAllOfInstancesInnerConfig) SetLayout(v ListInstances200ResponseAllOfInstancesInnerConfigLayout)`
 
 SetLayout sets Layout field to given value.
 

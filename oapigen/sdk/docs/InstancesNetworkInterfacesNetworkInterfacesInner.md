@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Network** | [**InstancesNetworkInterfacesNetwork**](InstancesNetworkInterfacesNetwork.md) |  | 
+**Network** | [**InstancesNetworkInterfacesNetworkInterfacesInnerNetwork**](InstancesNetworkInterfacesNetworkInterfacesInnerNetwork.md) |  | 
 **NetworkInterfaceTypeId** | Pointer to **int64** | The id of type of the network interface. | [optional] 
 **IpMode** | Pointer to **string** | The mode for determining ip address. Can be &#39;static&#39;, &#39;dhcp&#39; or empty string. | [optional] [default to ""]
 **IpAddress** | Pointer to **string** | The ip address. Not applicable when using DHCP or IP Pools. | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewInstancesNetworkInterfacesNetworkInterfacesInner
 
-`func NewInstancesNetworkInterfacesNetworkInterfacesInner(network InstancesNetworkInterfacesNetwork, ) *InstancesNetworkInterfacesNetworkInterfacesInner`
+`func NewInstancesNetworkInterfacesNetworkInterfacesInner(network InstancesNetworkInterfacesNetworkInterfacesInnerNetwork, ) *InstancesNetworkInterfacesNetworkInterfacesInner`
 
 NewInstancesNetworkInterfacesNetworkInterfacesInner instantiates a new InstancesNetworkInterfacesNetworkInterfacesInner object
 This constructor will assign default values to properties that have it defined,
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetNetwork
 
-`func (o *InstancesNetworkInterfacesNetworkInterfacesInner) GetNetwork() InstancesNetworkInterfacesNetwork`
+`func (o *InstancesNetworkInterfacesNetworkInterfacesInner) GetNetwork() InstancesNetworkInterfacesNetworkInterfacesInnerNetwork`
 
 GetNetwork returns the Network field if non-nil, zero value otherwise.
 
 ### GetNetworkOk
 
-`func (o *InstancesNetworkInterfacesNetworkInterfacesInner) GetNetworkOk() (*InstancesNetworkInterfacesNetwork, bool)`
+`func (o *InstancesNetworkInterfacesNetworkInterfacesInner) GetNetworkOk() (*InstancesNetworkInterfacesNetworkInterfacesInnerNetwork, bool)`
 
 GetNetworkOk returns a tuple with the Network field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetwork
 
-`func (o *InstancesNetworkInterfacesNetworkInterfacesInner) SetNetwork(v InstancesNetworkInterfacesNetwork)`
+`func (o *InstancesNetworkInterfacesNetworkInterfacesInner) SetNetwork(v InstancesNetworkInterfacesNetworkInterfacesInnerNetwork)`
 
 SetNetwork sets Network field to given value.
 

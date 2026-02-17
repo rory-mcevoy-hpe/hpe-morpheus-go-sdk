@@ -20,46 +20,46 @@ var _ MappedNullable = &ListClouds200ResponseAllOfZonesInnerConfigAnyOf1{}
 
 // ListClouds200ResponseAllOfZonesInnerConfigAnyOf1 struct for ListClouds200ResponseAllOfZonesInnerConfigAnyOf1
 type ListClouds200ResponseAllOfZonesInnerConfigAnyOf1 struct {
-	ApplianceUrl               NullableString                                                `json:"applianceUrl,omitempty"`
-	DatacenterName             NullableString                                                `json:"datacenterName,omitempty"`
-	ExternalId                 NullableString                                                `json:"externalId,omitempty"`
-	InventoryLevel             NullableString                                                `json:"inventoryLevel,omitempty"`
-	ConsoleKeymap              NullableString                                                `json:"consoleKeymap,omitempty"`
-	ApiUrl                     *string                                                       `json:"apiUrl,omitempty"`
-	ApiVersion                 NullableString                                                `json:"apiVersion,omitempty"`
-	BackupMode                 NullableString                                                `json:"backupMode,omitempty"`
-	CertificateProvider        NullableString                                                `json:"certificateProvider,omitempty"`
-	Cluster                    *string                                                       `json:"cluster,omitempty"`
-	ClusterRef                 *string                                                       `json:"clusterRef,omitempty"`
-	ConfigCmId                 NullableString                                                `json:"configCmId,omitempty"`
-	ConfigCmdbDiscovery        *bool                                                         `json:"configCmdbDiscovery,omitempty"`
-	ConfigCmdbId               NullableString                                                `json:"configCmdbId,omitempty"`
-	ConfigManagementId         NullableString                                                `json:"configManagementId,omitempty"`
-	Datacenter                 *string                                                       `json:"datacenter,omitempty"`
-	DatacenterId               NullableString                                                `json:"datacenterId,omitempty"`
-	DiskStorageType            NullableString                                                `json:"diskStorageType,omitempty"`
-	DistributedWorkerId        NullableString                                                `json:"distributedWorkerId,omitempty"`
-	DnsIntegrationId           NullableString                                                `json:"dnsIntegrationId,omitempty"`
-	EnableDiskTypeSelection    NullableString                                                `json:"enableDiskTypeSelection,omitempty"`
-	EnableNetworkTypeSelection NullableString                                                `json:"enableNetworkTypeSelection,omitempty"`
-	EnableStorageTypeSelection NullableString                                                `json:"enableStorageTypeSelection,omitempty"`
-	EnableVnc                  NullableString                                                `json:"enableVnc,omitempty"`
-	HideHostSelection          NullableString                                                `json:"hideHostSelection,omitempty"`
-	ImportExisting             NullableString                                                `json:"importExisting,omitempty"`
-	KubeUrl                    NullableString                                                `json:"kubeUrl,omitempty"`
-	NetworkServer              *ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer `json:"networkServer,omitempty"`
-	NetworkServerId            *string                                                       `json:"networkServer.id,omitempty"`
-	Password                   NullableString                                                `json:"password,omitempty"`
-	PasswordHash               NullableString                                                `json:"passwordHash,omitempty"`
-	ReplicationMode            NullableString                                                `json:"replicationMode,omitempty"`
-	ResourcePool               *string                                                       `json:"resourcePool,omitempty"`
-	ResourcePoolId             *string                                                       `json:"resourcePoolId,omitempty"`
-	RpcMode                    *string                                                       `json:"rpcMode,omitempty"`
-	SecurityMode               *string                                                       `json:"securityMode,omitempty"`
-	SecurityServer             NullableString                                                `json:"securityServer,omitempty"`
-	ServiceRegistryId          NullableString                                                `json:"serviceRegistryId,omitempty"`
-	Username                   *string                                                       `json:"username,omitempty"`
-	AdditionalProperties       map[string]interface{}                                        `json:",remain"`
+	ApplianceUrl               NullableString                                                 `json:"applianceUrl,omitempty"`
+	DatacenterName             NullableString                                                 `json:"datacenterName,omitempty"`
+	ExternalId                 NullableString                                                 `json:"externalId,omitempty"`
+	InventoryLevel             NullableString                                                 `json:"inventoryLevel,omitempty"`
+	ConsoleKeymap              NullableString                                                 `json:"consoleKeymap,omitempty"`
+	ApiUrl                     *string                                                        `json:"apiUrl,omitempty"`
+	ApiVersion                 NullableString                                                 `json:"apiVersion,omitempty"`
+	BackupMode                 NullableString                                                 `json:"backupMode,omitempty"`
+	CertificateProvider        NullableString                                                 `json:"certificateProvider,omitempty"`
+	Cluster                    *string                                                        `json:"cluster,omitempty"`
+	ClusterRef                 *string                                                        `json:"clusterRef,omitempty"`
+	ConfigCmId                 NullableString                                                 `json:"configCmId,omitempty"`
+	ConfigCmdbDiscovery        *bool                                                          `json:"configCmdbDiscovery,omitempty"`
+	ConfigCmdbId               NullableString                                                 `json:"configCmdbId,omitempty"`
+	ConfigManagementId         NullableString                                                 `json:"configManagementId,omitempty"`
+	Datacenter                 *string                                                        `json:"datacenter,omitempty"`
+	DatacenterId               NullableString                                                 `json:"datacenterId,omitempty"`
+	DiskStorageType            NullableString                                                 `json:"diskStorageType,omitempty"`
+	DistributedWorkerId        NullableString                                                 `json:"distributedWorkerId,omitempty"`
+	DnsIntegrationId           NullableString                                                 `json:"dnsIntegrationId,omitempty"`
+	EnableDiskTypeSelection    NullableString                                                 `json:"enableDiskTypeSelection,omitempty"`
+	EnableNetworkTypeSelection NullableString                                                 `json:"enableNetworkTypeSelection,omitempty"`
+	EnableStorageTypeSelection NullableString                                                 `json:"enableStorageTypeSelection,omitempty"`
+	EnableVnc                  NullableString                                                 `json:"enableVnc,omitempty"`
+	HideHostSelection          NullableString                                                 `json:"hideHostSelection,omitempty"`
+	ImportExisting             NullableString                                                 `json:"importExisting,omitempty"`
+	KubeUrl                    NullableString                                                 `json:"kubeUrl,omitempty"`
+	NetworkServer              *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer `json:"networkServer,omitempty"`
+	NetworkServerId            *string                                                        `json:"networkServer.id,omitempty"`
+	Password                   NullableString                                                 `json:"password,omitempty"`
+	PasswordHash               NullableString                                                 `json:"passwordHash,omitempty"`
+	ReplicationMode            NullableString                                                 `json:"replicationMode,omitempty"`
+	ResourcePool               *string                                                        `json:"resourcePool,omitempty"`
+	ResourcePoolId             *string                                                        `json:"resourcePoolId,omitempty"`
+	RpcMode                    *string                                                        `json:"rpcMode,omitempty"`
+	SecurityMode               *string                                                        `json:"securityMode,omitempty"`
+	SecurityServer             NullableString                                                 `json:"securityServer,omitempty"`
+	ServiceRegistryId          NullableString                                                 `json:"serviceRegistryId,omitempty"`
+	Username                   *string                                                        `json:"username,omitempty"`
+	AdditionalProperties       map[string]interface{}                                         `json:",remain"`
 }
 
 type _ListClouds200ResponseAllOfZonesInnerConfigAnyOf1 ListClouds200ResponseAllOfZonesInnerConfigAnyOf1
@@ -1188,9 +1188,9 @@ func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) UnsetKubeUrl() {
 }
 
 // GetNetworkServer returns the NetworkServer field value if set, zero value otherwise.
-func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) GetNetworkServer() ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer {
+func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) GetNetworkServer() ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer {
 	if o == nil || IsNil(o.NetworkServer) {
-		var ret ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer
+		var ret ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer
 		return ret
 	}
 	return *o.NetworkServer
@@ -1198,7 +1198,7 @@ func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) GetNetworkServer() Li
 
 // GetNetworkServerOk returns a tuple with the NetworkServer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) GetNetworkServerOk() (*ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer, bool) {
+func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) GetNetworkServerOk() (*ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer, bool) {
 	if o == nil || IsNil(o.NetworkServer) {
 		return nil, false
 	}
@@ -1214,8 +1214,8 @@ func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) IsSetNetworkServer() 
 	return false
 }
 
-// SetNetworkServer gets a reference to the given ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer and assigns it to the NetworkServer field.
-func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) SetNetworkServer(v ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer) {
+// SetNetworkServer gets a reference to the given ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer and assigns it to the NetworkServer field.
+func (o *ListClouds200ResponseAllOfZonesInnerConfigAnyOf1) SetNetworkServer(v ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer) {
 	o.NetworkServer = &v
 }
 

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **ConfigCmdbDiscovery** | Pointer to **bool** |  | [optional] 
 **EnableNetworkTypeSelection** | Pointer to **string** |  | [optional] 
 **KubeUrl** | Pointer to **string** |  | [optional] 
-**NetworkServer** | Pointer to [**ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer**](ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer.md) |  | [optional] 
+**NetworkServer** | Pointer to [**ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer**](ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer.md) |  | [optional] 
 **NetworkServerId** | Pointer to **string** |  | [optional] 
 **ReplicationMode** | Pointer to **string** |  | [optional] 
 **SecurityServer** | Pointer to **string** |  | [optional] 
@@ -315,20 +315,20 @@ HasKubeUrl returns a boolean if a field has been set.
 
 ### GetNetworkServer
 
-`func (o *ListClouds200ResponseAllOfZonesInnerConfig) GetNetworkServer() ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer`
+`func (o *ListClouds200ResponseAllOfZonesInnerConfig) GetNetworkServer() ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer`
 
 GetNetworkServer returns the NetworkServer field if non-nil, zero value otherwise.
 
 ### GetNetworkServerOk
 
-`func (o *ListClouds200ResponseAllOfZonesInnerConfig) GetNetworkServerOk() (*ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer, bool)`
+`func (o *ListClouds200ResponseAllOfZonesInnerConfig) GetNetworkServerOk() (*ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer, bool)`
 
 GetNetworkServerOk returns a tuple with the NetworkServer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetworkServer
 
-`func (o *ListClouds200ResponseAllOfZonesInnerConfig) SetNetworkServer(v ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer)`
+`func (o *ListClouds200ResponseAllOfZonesInnerConfig) SetNetworkServer(v ListClouds200ResponseAllOfZonesInnerConfigAnyOf1NetworkServer)`
 
 SetNetworkServer sets NetworkServer field to given value.
 

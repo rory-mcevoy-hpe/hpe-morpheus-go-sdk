@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Title** | Pointer to **string** |  | [optional] 
 **Message** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
-**FullPage** | Pointer to [**MessageOfTheDayPolicyTypeConfigurationMotdFullPage**](MessageOfTheDayPolicyTypeConfigurationMotdFullPage.md) |  | [optional] 
+**FullPage** | Pointer to [**MessageOfTheDayPolicyTypeConfiguration2MotdFullPage**](MessageOfTheDayPolicyTypeConfiguration2MotdFullPage.md) |  | [optional] 
 
 ## Methods
 
@@ -105,20 +105,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetFullPage
 
-`func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) GetFullPage() MessageOfTheDayPolicyTypeConfigurationMotdFullPage`
+`func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) GetFullPage() MessageOfTheDayPolicyTypeConfiguration2MotdFullPage`
 
 GetFullPage returns the FullPage field if non-nil, zero value otherwise.
 
 ### GetFullPageOk
 
-`func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) GetFullPageOk() (*MessageOfTheDayPolicyTypeConfigurationMotdFullPage, bool)`
+`func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) GetFullPageOk() (*MessageOfTheDayPolicyTypeConfiguration2MotdFullPage, bool)`
 
 GetFullPageOk returns a tuple with the FullPage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFullPage
 
-`func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) SetFullPage(v MessageOfTheDayPolicyTypeConfigurationMotdFullPage)`
+`func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) SetFullPage(v MessageOfTheDayPolicyTypeConfiguration2MotdFullPage)`
 
 SetFullPage sets FullPage field to given value.
 

@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **HideHostSelection** | Pointer to **NullableString** |  | [optional] 
 **ImportExisting** | Pointer to **NullableString** |  | [optional] 
 **KubeUrl** | Pointer to **NullableString** |  | [optional] 
-**NetworkServer** | Pointer to [**ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer**](ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer.md) |  | [optional] 
+**NetworkServer** | Pointer to [**CloudsConfigVMwareNetworkServer**](CloudsConfigVMwareNetworkServer.md) |  | [optional] 
 **NetworkServerId** | Pointer to **string** |  | [optional] 
 **Password** | Pointer to **NullableString** |  | [optional] 
 **PasswordHash** | Pointer to **NullableString** |  | [optional] 
@@ -960,20 +960,20 @@ HasKubeUrl returns a boolean if a field has been set.
 UnsetKubeUrl ensures that no value is present for KubeUrl, not even an explicit nil
 ### GetNetworkServer
 
-`func (o *CloudsConfigVMware) GetNetworkServer() ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer`
+`func (o *CloudsConfigVMware) GetNetworkServer() CloudsConfigVMwareNetworkServer`
 
 GetNetworkServer returns the NetworkServer field if non-nil, zero value otherwise.
 
 ### GetNetworkServerOk
 
-`func (o *CloudsConfigVMware) GetNetworkServerOk() (*ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer, bool)`
+`func (o *CloudsConfigVMware) GetNetworkServerOk() (*CloudsConfigVMwareNetworkServer, bool)`
 
 GetNetworkServerOk returns a tuple with the NetworkServer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetworkServer
 
-`func (o *CloudsConfigVMware) SetNetworkServer(v ListClouds200ResponseAllOfZonesInnerConfigAnyOfNetworkServer)`
+`func (o *CloudsConfigVMware) SetNetworkServer(v CloudsConfigVMwareNetworkServer)`
 
 SetNetworkServer sets NetworkServer field to given value.
 

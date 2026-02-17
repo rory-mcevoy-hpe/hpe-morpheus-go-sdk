@@ -9,28 +9,20 @@ Name | Type | Description | Notes
 **ExternalId** | Pointer to **NullableString** | The external id of the cloud | [optional] 
 **InventoryLevel** | Pointer to **string** | Whether to import existing virtual machines. | [optional] 
 **ConsoleKeymap** | Pointer to **string** | The keyboard layout to use for the console | [optional] 
-**ApiUrl** | **string** | The SDK URL of the vCenter server. | 
-**ApiVersion** | **string** | The SDK version of the vCenter server. | 
-**Datacenter** | **string** | The vSphere datacenter to add. | 
-**Cluster** | Pointer to **string** | The name of the vSphere cluster | [optional] [default to "all"]
-**ConfigManagementId** | Pointer to **string** | The id of the configuration management integration associated with the vSphere cloud. | [optional] 
-**ResourcePool** | Pointer to **string** | The name of the vSphere resource pool | [optional] 
-**RpcMode** | Pointer to [**NullableCloudCreateConfigVsphereRpcMode**](CloudCreateConfigVsphereRpcMode.md) |  | [optional] [default to guestexec]
-**StorageType** | Pointer to **string** | The default vSphere VMDK type for virtual machines | [optional] [default to "thin"]
-**CertificateProvider** | Pointer to **string** | Certificate provider | [optional] [default to "internal"]
-**EnableVnc** | Pointer to [**NullableZoneCreateConfigAnyOfEnableVnc**](ZoneCreateConfigAnyOfEnableVnc.md) |  | [optional] 
-**HideHostSelection** | Pointer to [**NullableZoneCreateConfigAnyOfHideHostSelection**](ZoneCreateConfigAnyOfHideHostSelection.md) |  | [optional] 
-**EnableDiskTypeSelection** | Pointer to [**NullableZoneCreateConfigAnyOfEnableDiskTypeSelection**](ZoneCreateConfigAnyOfEnableDiskTypeSelection.md) |  | [optional] 
-**EnableStorageTypeSelection** | Pointer to [**NullableZoneCreateConfigAnyOfEnableStorageTypeSelection**](ZoneCreateConfigAnyOfEnableStorageTypeSelection.md) |  | [optional] 
-**EnableNetworkTypeSelection** | Pointer to [**NullableCloudCreateConfigVsphereEnableNetworkTypeSelection**](CloudCreateConfigVsphereEnableNetworkTypeSelection.md) |  | [optional] 
-**Username** | Pointer to **string** | Username. | [optional] 
-**Password** | Pointer to **string** | Password to apply to the user | [optional] 
+**Endpoint** | **string** | AWS endpoint | 
+**AccessKey** | Pointer to **string** | AWS access key | [optional] 
+**SecretKey** | Pointer to **string** | AWS secret key | [optional] 
+**UseHostCredentials** | Pointer to **string** | Whether to use the IAM profile associated with the Morpheus server or not | [optional] [default to "on"]
+**EbsEncryption** | Pointer to **string** | Determines whether to configure default EBS volume encryption or not | [optional] [default to "on"]
+**StsAssumeRole** | Pointer to **string** | The AWS IAM role ARN to assume for authentication | [optional] 
+**ConfigManagementId** | Pointer to **string** | The id of the configuration management integration associated with the AWS cloud | [optional] 
+**Vpc** | Pointer to **string** | The VPC ID for a specific VPC | [optional] 
 
 ## Methods
 
 ### NewZoneCreateConfigAnyOf
 
-`func NewZoneCreateConfigAnyOf(apiUrl string, apiVersion string, datacenter string, ) *ZoneCreateConfigAnyOf`
+`func NewZoneCreateConfigAnyOf(endpoint string, ) *ZoneCreateConfigAnyOf`
 
 NewZoneCreateConfigAnyOf instantiates a new ZoneCreateConfigAnyOf object
 This constructor will assign default values to properties that have it defined,
@@ -180,90 +172,150 @@ SetConsoleKeymap sets ConsoleKeymap field to given value.
 
 HasConsoleKeymap returns a boolean if a field has been set.
 
-### GetApiUrl
+### GetEndpoint
 
-`func (o *ZoneCreateConfigAnyOf) GetApiUrl() string`
+`func (o *ZoneCreateConfigAnyOf) GetEndpoint() string`
 
-GetApiUrl returns the ApiUrl field if non-nil, zero value otherwise.
+GetEndpoint returns the Endpoint field if non-nil, zero value otherwise.
 
-### GetApiUrlOk
+### GetEndpointOk
 
-`func (o *ZoneCreateConfigAnyOf) GetApiUrlOk() (*string, bool)`
+`func (o *ZoneCreateConfigAnyOf) GetEndpointOk() (*string, bool)`
 
-GetApiUrlOk returns a tuple with the ApiUrl field if it's non-nil, zero value otherwise
+GetEndpointOk returns a tuple with the Endpoint field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetApiUrl
+### SetEndpoint
 
-`func (o *ZoneCreateConfigAnyOf) SetApiUrl(v string)`
+`func (o *ZoneCreateConfigAnyOf) SetEndpoint(v string)`
 
-SetApiUrl sets ApiUrl field to given value.
+SetEndpoint sets Endpoint field to given value.
 
 
-### GetApiVersion
+### GetAccessKey
 
-`func (o *ZoneCreateConfigAnyOf) GetApiVersion() string`
+`func (o *ZoneCreateConfigAnyOf) GetAccessKey() string`
 
-GetApiVersion returns the ApiVersion field if non-nil, zero value otherwise.
+GetAccessKey returns the AccessKey field if non-nil, zero value otherwise.
 
-### GetApiVersionOk
+### GetAccessKeyOk
 
-`func (o *ZoneCreateConfigAnyOf) GetApiVersionOk() (*string, bool)`
+`func (o *ZoneCreateConfigAnyOf) GetAccessKeyOk() (*string, bool)`
 
-GetApiVersionOk returns a tuple with the ApiVersion field if it's non-nil, zero value otherwise
+GetAccessKeyOk returns a tuple with the AccessKey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetApiVersion
+### SetAccessKey
 
-`func (o *ZoneCreateConfigAnyOf) SetApiVersion(v string)`
+`func (o *ZoneCreateConfigAnyOf) SetAccessKey(v string)`
 
-SetApiVersion sets ApiVersion field to given value.
+SetAccessKey sets AccessKey field to given value.
 
+### HasAccessKey
 
-### GetDatacenter
+`func (o *ZoneCreateConfigAnyOf) HasAccessKey() bool`
 
-`func (o *ZoneCreateConfigAnyOf) GetDatacenter() string`
+HasAccessKey returns a boolean if a field has been set.
 
-GetDatacenter returns the Datacenter field if non-nil, zero value otherwise.
+### GetSecretKey
 
-### GetDatacenterOk
+`func (o *ZoneCreateConfigAnyOf) GetSecretKey() string`
 
-`func (o *ZoneCreateConfigAnyOf) GetDatacenterOk() (*string, bool)`
+GetSecretKey returns the SecretKey field if non-nil, zero value otherwise.
 
-GetDatacenterOk returns a tuple with the Datacenter field if it's non-nil, zero value otherwise
+### GetSecretKeyOk
+
+`func (o *ZoneCreateConfigAnyOf) GetSecretKeyOk() (*string, bool)`
+
+GetSecretKeyOk returns a tuple with the SecretKey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDatacenter
+### SetSecretKey
 
-`func (o *ZoneCreateConfigAnyOf) SetDatacenter(v string)`
+`func (o *ZoneCreateConfigAnyOf) SetSecretKey(v string)`
 
-SetDatacenter sets Datacenter field to given value.
+SetSecretKey sets SecretKey field to given value.
 
+### HasSecretKey
 
-### GetCluster
+`func (o *ZoneCreateConfigAnyOf) HasSecretKey() bool`
 
-`func (o *ZoneCreateConfigAnyOf) GetCluster() string`
+HasSecretKey returns a boolean if a field has been set.
 
-GetCluster returns the Cluster field if non-nil, zero value otherwise.
+### GetUseHostCredentials
 
-### GetClusterOk
+`func (o *ZoneCreateConfigAnyOf) GetUseHostCredentials() string`
 
-`func (o *ZoneCreateConfigAnyOf) GetClusterOk() (*string, bool)`
+GetUseHostCredentials returns the UseHostCredentials field if non-nil, zero value otherwise.
 
-GetClusterOk returns a tuple with the Cluster field if it's non-nil, zero value otherwise
+### GetUseHostCredentialsOk
+
+`func (o *ZoneCreateConfigAnyOf) GetUseHostCredentialsOk() (*string, bool)`
+
+GetUseHostCredentialsOk returns a tuple with the UseHostCredentials field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCluster
+### SetUseHostCredentials
 
-`func (o *ZoneCreateConfigAnyOf) SetCluster(v string)`
+`func (o *ZoneCreateConfigAnyOf) SetUseHostCredentials(v string)`
 
-SetCluster sets Cluster field to given value.
+SetUseHostCredentials sets UseHostCredentials field to given value.
 
-### HasCluster
+### HasUseHostCredentials
 
-`func (o *ZoneCreateConfigAnyOf) HasCluster() bool`
+`func (o *ZoneCreateConfigAnyOf) HasUseHostCredentials() bool`
 
-HasCluster returns a boolean if a field has been set.
+HasUseHostCredentials returns a boolean if a field has been set.
+
+### GetEbsEncryption
+
+`func (o *ZoneCreateConfigAnyOf) GetEbsEncryption() string`
+
+GetEbsEncryption returns the EbsEncryption field if non-nil, zero value otherwise.
+
+### GetEbsEncryptionOk
+
+`func (o *ZoneCreateConfigAnyOf) GetEbsEncryptionOk() (*string, bool)`
+
+GetEbsEncryptionOk returns a tuple with the EbsEncryption field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEbsEncryption
+
+`func (o *ZoneCreateConfigAnyOf) SetEbsEncryption(v string)`
+
+SetEbsEncryption sets EbsEncryption field to given value.
+
+### HasEbsEncryption
+
+`func (o *ZoneCreateConfigAnyOf) HasEbsEncryption() bool`
+
+HasEbsEncryption returns a boolean if a field has been set.
+
+### GetStsAssumeRole
+
+`func (o *ZoneCreateConfigAnyOf) GetStsAssumeRole() string`
+
+GetStsAssumeRole returns the StsAssumeRole field if non-nil, zero value otherwise.
+
+### GetStsAssumeRoleOk
+
+`func (o *ZoneCreateConfigAnyOf) GetStsAssumeRoleOk() (*string, bool)`
+
+GetStsAssumeRoleOk returns a tuple with the StsAssumeRole field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStsAssumeRole
+
+`func (o *ZoneCreateConfigAnyOf) SetStsAssumeRole(v string)`
+
+SetStsAssumeRole sets StsAssumeRole field to given value.
+
+### HasStsAssumeRole
+
+`func (o *ZoneCreateConfigAnyOf) HasStsAssumeRole() bool`
+
+HasStsAssumeRole returns a boolean if a field has been set.
 
 ### GetConfigManagementId
 
@@ -290,340 +342,30 @@ SetConfigManagementId sets ConfigManagementId field to given value.
 
 HasConfigManagementId returns a boolean if a field has been set.
 
-### GetResourcePool
+### GetVpc
 
-`func (o *ZoneCreateConfigAnyOf) GetResourcePool() string`
+`func (o *ZoneCreateConfigAnyOf) GetVpc() string`
 
-GetResourcePool returns the ResourcePool field if non-nil, zero value otherwise.
+GetVpc returns the Vpc field if non-nil, zero value otherwise.
 
-### GetResourcePoolOk
+### GetVpcOk
 
-`func (o *ZoneCreateConfigAnyOf) GetResourcePoolOk() (*string, bool)`
+`func (o *ZoneCreateConfigAnyOf) GetVpcOk() (*string, bool)`
 
-GetResourcePoolOk returns a tuple with the ResourcePool field if it's non-nil, zero value otherwise
+GetVpcOk returns a tuple with the Vpc field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetResourcePool
+### SetVpc
 
-`func (o *ZoneCreateConfigAnyOf) SetResourcePool(v string)`
+`func (o *ZoneCreateConfigAnyOf) SetVpc(v string)`
 
-SetResourcePool sets ResourcePool field to given value.
+SetVpc sets Vpc field to given value.
 
-### HasResourcePool
+### HasVpc
 
-`func (o *ZoneCreateConfigAnyOf) HasResourcePool() bool`
+`func (o *ZoneCreateConfigAnyOf) HasVpc() bool`
 
-HasResourcePool returns a boolean if a field has been set.
-
-### GetRpcMode
-
-`func (o *ZoneCreateConfigAnyOf) GetRpcMode() CloudCreateConfigVsphereRpcMode`
-
-GetRpcMode returns the RpcMode field if non-nil, zero value otherwise.
-
-### GetRpcModeOk
-
-`func (o *ZoneCreateConfigAnyOf) GetRpcModeOk() (*CloudCreateConfigVsphereRpcMode, bool)`
-
-GetRpcModeOk returns a tuple with the RpcMode field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRpcMode
-
-`func (o *ZoneCreateConfigAnyOf) SetRpcMode(v CloudCreateConfigVsphereRpcMode)`
-
-SetRpcMode sets RpcMode field to given value.
-
-### HasRpcMode
-
-`func (o *ZoneCreateConfigAnyOf) HasRpcMode() bool`
-
-HasRpcMode returns a boolean if a field has been set.
-
-### SetRpcModeNil
-
-`func (o *ZoneCreateConfigAnyOf) SetRpcModeNil(b bool)`
-
- SetRpcModeNil sets the value for RpcMode to be an explicit nil
-
-### UnsetRpcMode
-`func (o *ZoneCreateConfigAnyOf) UnsetRpcMode()`
-
-UnsetRpcMode ensures that no value is present for RpcMode, not even an explicit nil
-### GetStorageType
-
-`func (o *ZoneCreateConfigAnyOf) GetStorageType() string`
-
-GetStorageType returns the StorageType field if non-nil, zero value otherwise.
-
-### GetStorageTypeOk
-
-`func (o *ZoneCreateConfigAnyOf) GetStorageTypeOk() (*string, bool)`
-
-GetStorageTypeOk returns a tuple with the StorageType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStorageType
-
-`func (o *ZoneCreateConfigAnyOf) SetStorageType(v string)`
-
-SetStorageType sets StorageType field to given value.
-
-### HasStorageType
-
-`func (o *ZoneCreateConfigAnyOf) HasStorageType() bool`
-
-HasStorageType returns a boolean if a field has been set.
-
-### GetCertificateProvider
-
-`func (o *ZoneCreateConfigAnyOf) GetCertificateProvider() string`
-
-GetCertificateProvider returns the CertificateProvider field if non-nil, zero value otherwise.
-
-### GetCertificateProviderOk
-
-`func (o *ZoneCreateConfigAnyOf) GetCertificateProviderOk() (*string, bool)`
-
-GetCertificateProviderOk returns a tuple with the CertificateProvider field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCertificateProvider
-
-`func (o *ZoneCreateConfigAnyOf) SetCertificateProvider(v string)`
-
-SetCertificateProvider sets CertificateProvider field to given value.
-
-### HasCertificateProvider
-
-`func (o *ZoneCreateConfigAnyOf) HasCertificateProvider() bool`
-
-HasCertificateProvider returns a boolean if a field has been set.
-
-### GetEnableVnc
-
-`func (o *ZoneCreateConfigAnyOf) GetEnableVnc() ZoneCreateConfigAnyOfEnableVnc`
-
-GetEnableVnc returns the EnableVnc field if non-nil, zero value otherwise.
-
-### GetEnableVncOk
-
-`func (o *ZoneCreateConfigAnyOf) GetEnableVncOk() (*ZoneCreateConfigAnyOfEnableVnc, bool)`
-
-GetEnableVncOk returns a tuple with the EnableVnc field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnableVnc
-
-`func (o *ZoneCreateConfigAnyOf) SetEnableVnc(v ZoneCreateConfigAnyOfEnableVnc)`
-
-SetEnableVnc sets EnableVnc field to given value.
-
-### HasEnableVnc
-
-`func (o *ZoneCreateConfigAnyOf) HasEnableVnc() bool`
-
-HasEnableVnc returns a boolean if a field has been set.
-
-### SetEnableVncNil
-
-`func (o *ZoneCreateConfigAnyOf) SetEnableVncNil(b bool)`
-
- SetEnableVncNil sets the value for EnableVnc to be an explicit nil
-
-### UnsetEnableVnc
-`func (o *ZoneCreateConfigAnyOf) UnsetEnableVnc()`
-
-UnsetEnableVnc ensures that no value is present for EnableVnc, not even an explicit nil
-### GetHideHostSelection
-
-`func (o *ZoneCreateConfigAnyOf) GetHideHostSelection() ZoneCreateConfigAnyOfHideHostSelection`
-
-GetHideHostSelection returns the HideHostSelection field if non-nil, zero value otherwise.
-
-### GetHideHostSelectionOk
-
-`func (o *ZoneCreateConfigAnyOf) GetHideHostSelectionOk() (*ZoneCreateConfigAnyOfHideHostSelection, bool)`
-
-GetHideHostSelectionOk returns a tuple with the HideHostSelection field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHideHostSelection
-
-`func (o *ZoneCreateConfigAnyOf) SetHideHostSelection(v ZoneCreateConfigAnyOfHideHostSelection)`
-
-SetHideHostSelection sets HideHostSelection field to given value.
-
-### HasHideHostSelection
-
-`func (o *ZoneCreateConfigAnyOf) HasHideHostSelection() bool`
-
-HasHideHostSelection returns a boolean if a field has been set.
-
-### SetHideHostSelectionNil
-
-`func (o *ZoneCreateConfigAnyOf) SetHideHostSelectionNil(b bool)`
-
- SetHideHostSelectionNil sets the value for HideHostSelection to be an explicit nil
-
-### UnsetHideHostSelection
-`func (o *ZoneCreateConfigAnyOf) UnsetHideHostSelection()`
-
-UnsetHideHostSelection ensures that no value is present for HideHostSelection, not even an explicit nil
-### GetEnableDiskTypeSelection
-
-`func (o *ZoneCreateConfigAnyOf) GetEnableDiskTypeSelection() ZoneCreateConfigAnyOfEnableDiskTypeSelection`
-
-GetEnableDiskTypeSelection returns the EnableDiskTypeSelection field if non-nil, zero value otherwise.
-
-### GetEnableDiskTypeSelectionOk
-
-`func (o *ZoneCreateConfigAnyOf) GetEnableDiskTypeSelectionOk() (*ZoneCreateConfigAnyOfEnableDiskTypeSelection, bool)`
-
-GetEnableDiskTypeSelectionOk returns a tuple with the EnableDiskTypeSelection field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnableDiskTypeSelection
-
-`func (o *ZoneCreateConfigAnyOf) SetEnableDiskTypeSelection(v ZoneCreateConfigAnyOfEnableDiskTypeSelection)`
-
-SetEnableDiskTypeSelection sets EnableDiskTypeSelection field to given value.
-
-### HasEnableDiskTypeSelection
-
-`func (o *ZoneCreateConfigAnyOf) HasEnableDiskTypeSelection() bool`
-
-HasEnableDiskTypeSelection returns a boolean if a field has been set.
-
-### SetEnableDiskTypeSelectionNil
-
-`func (o *ZoneCreateConfigAnyOf) SetEnableDiskTypeSelectionNil(b bool)`
-
- SetEnableDiskTypeSelectionNil sets the value for EnableDiskTypeSelection to be an explicit nil
-
-### UnsetEnableDiskTypeSelection
-`func (o *ZoneCreateConfigAnyOf) UnsetEnableDiskTypeSelection()`
-
-UnsetEnableDiskTypeSelection ensures that no value is present for EnableDiskTypeSelection, not even an explicit nil
-### GetEnableStorageTypeSelection
-
-`func (o *ZoneCreateConfigAnyOf) GetEnableStorageTypeSelection() ZoneCreateConfigAnyOfEnableStorageTypeSelection`
-
-GetEnableStorageTypeSelection returns the EnableStorageTypeSelection field if non-nil, zero value otherwise.
-
-### GetEnableStorageTypeSelectionOk
-
-`func (o *ZoneCreateConfigAnyOf) GetEnableStorageTypeSelectionOk() (*ZoneCreateConfigAnyOfEnableStorageTypeSelection, bool)`
-
-GetEnableStorageTypeSelectionOk returns a tuple with the EnableStorageTypeSelection field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnableStorageTypeSelection
-
-`func (o *ZoneCreateConfigAnyOf) SetEnableStorageTypeSelection(v ZoneCreateConfigAnyOfEnableStorageTypeSelection)`
-
-SetEnableStorageTypeSelection sets EnableStorageTypeSelection field to given value.
-
-### HasEnableStorageTypeSelection
-
-`func (o *ZoneCreateConfigAnyOf) HasEnableStorageTypeSelection() bool`
-
-HasEnableStorageTypeSelection returns a boolean if a field has been set.
-
-### SetEnableStorageTypeSelectionNil
-
-`func (o *ZoneCreateConfigAnyOf) SetEnableStorageTypeSelectionNil(b bool)`
-
- SetEnableStorageTypeSelectionNil sets the value for EnableStorageTypeSelection to be an explicit nil
-
-### UnsetEnableStorageTypeSelection
-`func (o *ZoneCreateConfigAnyOf) UnsetEnableStorageTypeSelection()`
-
-UnsetEnableStorageTypeSelection ensures that no value is present for EnableStorageTypeSelection, not even an explicit nil
-### GetEnableNetworkTypeSelection
-
-`func (o *ZoneCreateConfigAnyOf) GetEnableNetworkTypeSelection() CloudCreateConfigVsphereEnableNetworkTypeSelection`
-
-GetEnableNetworkTypeSelection returns the EnableNetworkTypeSelection field if non-nil, zero value otherwise.
-
-### GetEnableNetworkTypeSelectionOk
-
-`func (o *ZoneCreateConfigAnyOf) GetEnableNetworkTypeSelectionOk() (*CloudCreateConfigVsphereEnableNetworkTypeSelection, bool)`
-
-GetEnableNetworkTypeSelectionOk returns a tuple with the EnableNetworkTypeSelection field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnableNetworkTypeSelection
-
-`func (o *ZoneCreateConfigAnyOf) SetEnableNetworkTypeSelection(v CloudCreateConfigVsphereEnableNetworkTypeSelection)`
-
-SetEnableNetworkTypeSelection sets EnableNetworkTypeSelection field to given value.
-
-### HasEnableNetworkTypeSelection
-
-`func (o *ZoneCreateConfigAnyOf) HasEnableNetworkTypeSelection() bool`
-
-HasEnableNetworkTypeSelection returns a boolean if a field has been set.
-
-### SetEnableNetworkTypeSelectionNil
-
-`func (o *ZoneCreateConfigAnyOf) SetEnableNetworkTypeSelectionNil(b bool)`
-
- SetEnableNetworkTypeSelectionNil sets the value for EnableNetworkTypeSelection to be an explicit nil
-
-### UnsetEnableNetworkTypeSelection
-`func (o *ZoneCreateConfigAnyOf) UnsetEnableNetworkTypeSelection()`
-
-UnsetEnableNetworkTypeSelection ensures that no value is present for EnableNetworkTypeSelection, not even an explicit nil
-### GetUsername
-
-`func (o *ZoneCreateConfigAnyOf) GetUsername() string`
-
-GetUsername returns the Username field if non-nil, zero value otherwise.
-
-### GetUsernameOk
-
-`func (o *ZoneCreateConfigAnyOf) GetUsernameOk() (*string, bool)`
-
-GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUsername
-
-`func (o *ZoneCreateConfigAnyOf) SetUsername(v string)`
-
-SetUsername sets Username field to given value.
-
-### HasUsername
-
-`func (o *ZoneCreateConfigAnyOf) HasUsername() bool`
-
-HasUsername returns a boolean if a field has been set.
-
-### GetPassword
-
-`func (o *ZoneCreateConfigAnyOf) GetPassword() string`
-
-GetPassword returns the Password field if non-nil, zero value otherwise.
-
-### GetPasswordOk
-
-`func (o *ZoneCreateConfigAnyOf) GetPasswordOk() (*string, bool)`
-
-GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPassword
-
-`func (o *ZoneCreateConfigAnyOf) SetPassword(v string)`
-
-SetPassword sets Password field to given value.
-
-### HasPassword
-
-`func (o *ZoneCreateConfigAnyOf) HasPassword() bool`
-
-HasPassword returns a boolean if a field has been set.
+HasVpc returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

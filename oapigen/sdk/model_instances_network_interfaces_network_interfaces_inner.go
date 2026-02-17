@@ -20,7 +20,7 @@ var _ MappedNullable = &InstancesNetworkInterfacesNetworkInterfacesInner{}
 
 // InstancesNetworkInterfacesNetworkInterfacesInner struct for InstancesNetworkInterfacesNetworkInterfacesInner
 type InstancesNetworkInterfacesNetworkInterfacesInner struct {
-	Network InstancesNetworkInterfacesNetwork `json:"network"`
+	Network InstancesNetworkInterfacesNetworkInterfacesInnerNetwork `json:"network"`
 	// The id of type of the network interface.
 	NetworkInterfaceTypeId *int64 `json:"networkInterfaceTypeId,omitempty"`
 	// The mode for determining ip address. Can be 'static', 'dhcp' or empty string.
@@ -40,7 +40,7 @@ type _InstancesNetworkInterfacesNetworkInterfacesInner InstancesNetworkInterface
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInstancesNetworkInterfacesNetworkInterfacesInner(network InstancesNetworkInterfacesNetwork) *InstancesNetworkInterfacesNetworkInterfacesInner {
+func NewInstancesNetworkInterfacesNetworkInterfacesInner(network InstancesNetworkInterfacesNetworkInterfacesInnerNetwork) *InstancesNetworkInterfacesNetworkInterfacesInner {
 	this := InstancesNetworkInterfacesNetworkInterfacesInner{}
 	this.Network = network
 	var ipMode string = ""
@@ -59,9 +59,9 @@ func NewInstancesNetworkInterfacesNetworkInterfacesInnerWithDefaults() *Instance
 }
 
 // GetNetwork returns the Network field value
-func (o *InstancesNetworkInterfacesNetworkInterfacesInner) GetNetwork() InstancesNetworkInterfacesNetwork {
+func (o *InstancesNetworkInterfacesNetworkInterfacesInner) GetNetwork() InstancesNetworkInterfacesNetworkInterfacesInnerNetwork {
 	if o == nil {
-		var ret InstancesNetworkInterfacesNetwork
+		var ret InstancesNetworkInterfacesNetworkInterfacesInnerNetwork
 		return ret
 	}
 
@@ -70,7 +70,7 @@ func (o *InstancesNetworkInterfacesNetworkInterfacesInner) GetNetwork() Instance
 
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
-func (o *InstancesNetworkInterfacesNetworkInterfacesInner) GetNetworkOk() (*InstancesNetworkInterfacesNetwork, bool) {
+func (o *InstancesNetworkInterfacesNetworkInterfacesInner) GetNetworkOk() (*InstancesNetworkInterfacesNetworkInterfacesInnerNetwork, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -78,7 +78,7 @@ func (o *InstancesNetworkInterfacesNetworkInterfacesInner) GetNetworkOk() (*Inst
 }
 
 // SetNetwork sets field value
-func (o *InstancesNetworkInterfacesNetworkInterfacesInner) SetNetwork(v InstancesNetworkInterfacesNetwork) {
+func (o *InstancesNetworkInterfacesNetworkInterfacesInner) SetNetwork(v InstancesNetworkInterfacesNetworkInterfacesInnerNetwork) {
 	o.Network = v
 }
 

@@ -20,12 +20,12 @@ var _ MappedNullable = &InstanceInterfacesNetworkInterfacesInner1{}
 
 // InstanceInterfacesNetworkInterfacesInner1 struct for InstanceInterfacesNetworkInterfacesInner1
 type InstanceInterfacesNetworkInterfacesInner1 struct {
-	Id                     *InstanceInterfacesNetworkInterfacesInnerId      `json:"id,omitempty"`
-	Network                *InstanceInterfacesNetworkInterfacesInnerNetwork `json:"network,omitempty"`
-	IpAddress              *string                                          `json:"ipAddress,omitempty"`
-	NetworkInterfaceTypeId *int64                                           `json:"networkInterfaceTypeId,omitempty"`
-	IpMode                 *string                                          `json:"ipMode,omitempty"`
-	AdditionalProperties   map[string]interface{}                           `json:",remain"`
+	Id                     *InstanceInterfacesNetworkInterfacesInner1Id      `json:"id,omitempty"`
+	Network                *InstanceInterfacesNetworkInterfacesInner1Network `json:"network,omitempty"`
+	IpAddress              *string                                           `json:"ipAddress,omitempty"`
+	NetworkInterfaceTypeId *int64                                            `json:"networkInterfaceTypeId,omitempty"`
+	IpMode                 *string                                           `json:"ipMode,omitempty"`
+	AdditionalProperties   map[string]interface{}                            `json:",remain"`
 }
 
 type _InstanceInterfacesNetworkInterfacesInner1 InstanceInterfacesNetworkInterfacesInner1
@@ -48,9 +48,9 @@ func NewInstanceInterfacesNetworkInterfacesInner1WithDefaults() *InstanceInterfa
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *InstanceInterfacesNetworkInterfacesInner1) GetId() InstanceInterfacesNetworkInterfacesInnerId {
+func (o *InstanceInterfacesNetworkInterfacesInner1) GetId() InstanceInterfacesNetworkInterfacesInner1Id {
 	if o == nil || IsNil(o.Id) {
-		var ret InstanceInterfacesNetworkInterfacesInnerId
+		var ret InstanceInterfacesNetworkInterfacesInner1Id
 		return ret
 	}
 	return *o.Id
@@ -58,7 +58,7 @@ func (o *InstanceInterfacesNetworkInterfacesInner1) GetId() InstanceInterfacesNe
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceInterfacesNetworkInterfacesInner1) GetIdOk() (*InstanceInterfacesNetworkInterfacesInnerId, bool) {
+func (o *InstanceInterfacesNetworkInterfacesInner1) GetIdOk() (*InstanceInterfacesNetworkInterfacesInner1Id, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -74,15 +74,15 @@ func (o *InstanceInterfacesNetworkInterfacesInner1) IsSetId() bool {
 	return false
 }
 
-// SetId gets a reference to the given InstanceInterfacesNetworkInterfacesInnerId and assigns it to the Id field.
-func (o *InstanceInterfacesNetworkInterfacesInner1) SetId(v InstanceInterfacesNetworkInterfacesInnerId) {
+// SetId gets a reference to the given InstanceInterfacesNetworkInterfacesInner1Id and assigns it to the Id field.
+func (o *InstanceInterfacesNetworkInterfacesInner1) SetId(v InstanceInterfacesNetworkInterfacesInner1Id) {
 	o.Id = &v
 }
 
 // GetNetwork returns the Network field value if set, zero value otherwise.
-func (o *InstanceInterfacesNetworkInterfacesInner1) GetNetwork() InstanceInterfacesNetworkInterfacesInnerNetwork {
+func (o *InstanceInterfacesNetworkInterfacesInner1) GetNetwork() InstanceInterfacesNetworkInterfacesInner1Network {
 	if o == nil || IsNil(o.Network) {
-		var ret InstanceInterfacesNetworkInterfacesInnerNetwork
+		var ret InstanceInterfacesNetworkInterfacesInner1Network
 		return ret
 	}
 	return *o.Network
@@ -90,7 +90,7 @@ func (o *InstanceInterfacesNetworkInterfacesInner1) GetNetwork() InstanceInterfa
 
 // GetNetworkOk returns a tuple with the Network field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceInterfacesNetworkInterfacesInner1) GetNetworkOk() (*InstanceInterfacesNetworkInterfacesInnerNetwork, bool) {
+func (o *InstanceInterfacesNetworkInterfacesInner1) GetNetworkOk() (*InstanceInterfacesNetworkInterfacesInner1Network, bool) {
 	if o == nil || IsNil(o.Network) {
 		return nil, false
 	}
@@ -106,8 +106,8 @@ func (o *InstanceInterfacesNetworkInterfacesInner1) IsSetNetwork() bool {
 	return false
 }
 
-// SetNetwork gets a reference to the given InstanceInterfacesNetworkInterfacesInnerNetwork and assigns it to the Network field.
-func (o *InstanceInterfacesNetworkInterfacesInner1) SetNetwork(v InstanceInterfacesNetworkInterfacesInnerNetwork) {
+// SetNetwork gets a reference to the given InstanceInterfacesNetworkInterfacesInner1Network and assigns it to the Network field.
+func (o *InstanceInterfacesNetworkInterfacesInner1) SetNetwork(v InstanceInterfacesNetworkInterfacesInner1Network) {
 	o.Network = &v
 }
 

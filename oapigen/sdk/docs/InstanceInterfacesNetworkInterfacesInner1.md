@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to [**InstanceInterfacesNetworkInterfacesInnerId**](InstanceInterfacesNetworkInterfacesInnerId.md) |  | [optional] 
-**Network** | Pointer to [**InstanceInterfacesNetworkInterfacesInnerNetwork**](InstanceInterfacesNetworkInterfacesInnerNetwork.md) |  | [optional] 
+**Id** | Pointer to [**InstanceInterfacesNetworkInterfacesInner1Id**](InstanceInterfacesNetworkInterfacesInner1Id.md) |  | [optional] 
+**Network** | Pointer to [**InstanceInterfacesNetworkInterfacesInner1Network**](InstanceInterfacesNetworkInterfacesInner1Network.md) |  | [optional] 
 **IpAddress** | Pointer to **string** |  | [optional] 
 **NetworkInterfaceTypeId** | Pointer to **int64** |  | [optional] 
 **IpMode** | Pointer to **string** |  | [optional] 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *InstanceInterfacesNetworkInterfacesInner1) GetId() InstanceInterfacesNetworkInterfacesInnerId`
+`func (o *InstanceInterfacesNetworkInterfacesInner1) GetId() InstanceInterfacesNetworkInterfacesInner1Id`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *InstanceInterfacesNetworkInterfacesInner1) GetIdOk() (*InstanceInterfacesNetworkInterfacesInnerId, bool)`
+`func (o *InstanceInterfacesNetworkInterfacesInner1) GetIdOk() (*InstanceInterfacesNetworkInterfacesInner1Id, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *InstanceInterfacesNetworkInterfacesInner1) SetId(v InstanceInterfacesNetworkInterfacesInnerId)`
+`func (o *InstanceInterfacesNetworkInterfacesInner1) SetId(v InstanceInterfacesNetworkInterfacesInner1Id)`
 
 SetId sets Id field to given value.
 
@@ -56,20 +56,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetNetwork
 
-`func (o *InstanceInterfacesNetworkInterfacesInner1) GetNetwork() InstanceInterfacesNetworkInterfacesInnerNetwork`
+`func (o *InstanceInterfacesNetworkInterfacesInner1) GetNetwork() InstanceInterfacesNetworkInterfacesInner1Network`
 
 GetNetwork returns the Network field if non-nil, zero value otherwise.
 
 ### GetNetworkOk
 
-`func (o *InstanceInterfacesNetworkInterfacesInner1) GetNetworkOk() (*InstanceInterfacesNetworkInterfacesInnerNetwork, bool)`
+`func (o *InstanceInterfacesNetworkInterfacesInner1) GetNetworkOk() (*InstanceInterfacesNetworkInterfacesInner1Network, bool)`
 
 GetNetworkOk returns a tuple with the Network field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetwork
 
-`func (o *InstanceInterfacesNetworkInterfacesInner1) SetNetwork(v InstanceInterfacesNetworkInterfacesInnerNetwork)`
+`func (o *InstanceInterfacesNetworkInterfacesInner1) SetNetwork(v InstanceInterfacesNetworkInterfacesInner1Network)`
 
 SetNetwork sets Network field to given value.
 

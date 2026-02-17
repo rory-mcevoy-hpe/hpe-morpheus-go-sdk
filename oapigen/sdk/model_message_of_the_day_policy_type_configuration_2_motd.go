@@ -20,11 +20,11 @@ var _ MappedNullable = &MessageOfTheDayPolicyTypeConfiguration2Motd{}
 
 // MessageOfTheDayPolicyTypeConfiguration2Motd struct for MessageOfTheDayPolicyTypeConfiguration2Motd
 type MessageOfTheDayPolicyTypeConfiguration2Motd struct {
-	Title                *string                                             `json:"title,omitempty"`
-	Message              *string                                             `json:"message,omitempty"`
-	Type                 *string                                             `json:"type,omitempty"`
-	FullPage             *MessageOfTheDayPolicyTypeConfigurationMotdFullPage `json:"fullPage,omitempty"`
-	AdditionalProperties map[string]interface{}                              `json:",remain"`
+	Title                *string                                              `json:"title,omitempty"`
+	Message              *string                                              `json:"message,omitempty"`
+	Type                 *string                                              `json:"type,omitempty"`
+	FullPage             *MessageOfTheDayPolicyTypeConfiguration2MotdFullPage `json:"fullPage,omitempty"`
+	AdditionalProperties map[string]interface{}                               `json:",remain"`
 }
 
 type _MessageOfTheDayPolicyTypeConfiguration2Motd MessageOfTheDayPolicyTypeConfiguration2Motd
@@ -143,9 +143,9 @@ func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) SetType(v string) {
 }
 
 // GetFullPage returns the FullPage field value if set, zero value otherwise.
-func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) GetFullPage() MessageOfTheDayPolicyTypeConfigurationMotdFullPage {
+func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) GetFullPage() MessageOfTheDayPolicyTypeConfiguration2MotdFullPage {
 	if o == nil || IsNil(o.FullPage) {
-		var ret MessageOfTheDayPolicyTypeConfigurationMotdFullPage
+		var ret MessageOfTheDayPolicyTypeConfiguration2MotdFullPage
 		return ret
 	}
 	return *o.FullPage
@@ -153,7 +153,7 @@ func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) GetFullPage() MessageOfThe
 
 // GetFullPageOk returns a tuple with the FullPage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) GetFullPageOk() (*MessageOfTheDayPolicyTypeConfigurationMotdFullPage, bool) {
+func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) GetFullPageOk() (*MessageOfTheDayPolicyTypeConfiguration2MotdFullPage, bool) {
 	if o == nil || IsNil(o.FullPage) {
 		return nil, false
 	}
@@ -169,8 +169,8 @@ func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) IsSetFullPage() bool {
 	return false
 }
 
-// SetFullPage gets a reference to the given MessageOfTheDayPolicyTypeConfigurationMotdFullPage and assigns it to the FullPage field.
-func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) SetFullPage(v MessageOfTheDayPolicyTypeConfigurationMotdFullPage) {
+// SetFullPage gets a reference to the given MessageOfTheDayPolicyTypeConfiguration2MotdFullPage and assigns it to the FullPage field.
+func (o *MessageOfTheDayPolicyTypeConfiguration2Motd) SetFullPage(v MessageOfTheDayPolicyTypeConfiguration2MotdFullPage) {
 	o.FullPage = &v
 }
 

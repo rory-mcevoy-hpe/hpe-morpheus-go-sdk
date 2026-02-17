@@ -48,13 +48,13 @@ tasks:
       - cp {{.GENERATORIGNOREFILE}} {{.OUTPUTDIR}}
       - cmd: >-
           openapi-generator-cli generate 
+          --inline-schema-options SKIP_SCHEMA_REUSE=true
           -g {{.GENERATOR}}
           -i {{.BUNDLEDSPEC}}
           -c {{.GENERATORCONFIG}}
           {{if .TEMPLATEDIR -}}-t {{.TEMPLATEDIR}} {{end}}
           -o {{.OUTPUTDIR}}
       - goimports -w ./oapigen
-      - mv openapitools.json oapigen/
   
   clone-spec:
     silent: true
@@ -66,15 +66,31 @@ tasks:
     internal: true
     cmds:
       - >-
+        yq '(load("includePaths.yaml") | .includePaths) as $p | .paths[] | select(key == $p[]) | {key: .}'
+        morpheus-openapi/openapi.yaml > pathsTmp.yaml
+      - >-
+        yq -i '.paths = load("pathsTmp.yaml")' morpheus-openapi/openapi.yaml
+      - >-
         redocly bundle 
         --dereferenced 
         --output {{.BUNDLEDSPEC}}
         morpheus-openapi/openapi.yaml
+
+  update-spec-local:
+    desc: "update OpenAPI spec to match parallel local morpheus-openapi repo"
+    vars:
+      GITREF: '{{if (empty .GITREF)}}tf-dev{{else}}{{.GITREF}}{{end}}'
+    dir: morpheus-openapi
+    cmds:
+      - git clone ../../morpheus-openapi .
+      - defer: rm -rf ../morpheus-openapi
+      - git checkout {{.GITREF}}
+      - task: bundle-spec
   
   update-spec:
     desc: "update OpenAPI spec to match the morpheus-openapi GITREF"
     vars:
-      GITREF: '{{if (empty .GITREF)}}main{{else}}{{.GITREF}}{{end}}'
+      GITREF: '{{if (empty .GITREF)}}tf-dev{{else}}{{.GITREF}}{{end}}'
     dir: morpheus-openapi
     cmds:
       - task: clone-spec
