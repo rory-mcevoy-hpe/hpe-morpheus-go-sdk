@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **ConfigCmdbDiscovery** | Pointer to **bool** |  | [optional] 
 **EnableNetworkTypeSelection** | Pointer to **string** |  | [optional] 
 **KubeUrl** | Pointer to **string** |  | [optional] 
-**NetworkServer** | Pointer to [**AddClouds200ResponseAllOfZoneConfigAnyOf1NetworkServer**](AddClouds200ResponseAllOfZoneConfigAnyOf1NetworkServer.md) |  | [optional] 
+**NetworkServer** | Pointer to [**AddClouds200ResponseAllOfZoneConfigAnyOf2NetworkServer**](AddClouds200ResponseAllOfZoneConfigAnyOf2NetworkServer.md) |  | [optional] 
 **NetworkServerId** | Pointer to **string** |  | [optional] 
 **ReplicationMode** | Pointer to **string** |  | [optional] 
 **SecurityServer** | Pointer to **string** |  | [optional] 
@@ -43,6 +43,25 @@ Name | Type | Description | Notes
 **SecurityMode** | Pointer to **string** |  | [optional] 
 **ServiceRegistryId** | Pointer to **string** |  | [optional] 
 **Username** | Pointer to **string** |  | [optional] 
+**Endpoint** | Pointer to **string** |  | [optional] 
+**AccessKey** | Pointer to **string** |  | [optional] 
+**SecretKey** | Pointer to **string** |  | [optional] 
+**UseHostCredentials** | Pointer to **string** |  | [optional] 
+**StsAssumeRole** | Pointer to **string** |  | [optional] 
+**IsVpc** | Pointer to **string** |  | [optional] 
+**Vpc** | Pointer to **string** |  | [optional] 
+**ImageStoreId** | Pointer to **string** |  | [optional] 
+**EbsEncryption** | Pointer to **string** |  | [optional] 
+**CostingReport** | Pointer to **string** |  | [optional] 
+**CostingFolder** | Pointer to **string** |  | [optional] 
+**CostingBucket** | Pointer to **string** |  | [optional] 
+**CostingBucketName** | Pointer to **string** |  | [optional] 
+**CostingRegion** | Pointer to **string** |  | [optional] 
+**CostingAccessKey** | Pointer to **string** |  | [optional] 
+**CostingSecretKey** | Pointer to **string** |  | [optional] 
+**CostingReportName** | Pointer to **string** |  | [optional] 
+**SecretKeyHash** | Pointer to **string** |  | [optional] 
+**CostingSecretKeyHash** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -315,20 +334,20 @@ HasKubeUrl returns a boolean if a field has been set.
 
 ### GetNetworkServer
 
-`func (o *AddClouds200ResponseAllOfZoneConfig) GetNetworkServer() AddClouds200ResponseAllOfZoneConfigAnyOf1NetworkServer`
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetNetworkServer() AddClouds200ResponseAllOfZoneConfigAnyOf2NetworkServer`
 
 GetNetworkServer returns the NetworkServer field if non-nil, zero value otherwise.
 
 ### GetNetworkServerOk
 
-`func (o *AddClouds200ResponseAllOfZoneConfig) GetNetworkServerOk() (*AddClouds200ResponseAllOfZoneConfigAnyOf1NetworkServer, bool)`
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetNetworkServerOk() (*AddClouds200ResponseAllOfZoneConfigAnyOf2NetworkServer, bool)`
 
 GetNetworkServerOk returns a tuple with the NetworkServer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetworkServer
 
-`func (o *AddClouds200ResponseAllOfZoneConfig) SetNetworkServer(v AddClouds200ResponseAllOfZoneConfigAnyOf1NetworkServer)`
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetNetworkServer(v AddClouds200ResponseAllOfZoneConfigAnyOf2NetworkServer)`
 
 SetNetworkServer sets NetworkServer field to given value.
 
@@ -1037,6 +1056,481 @@ SetUsername sets Username field to given value.
 `func (o *AddClouds200ResponseAllOfZoneConfig) HasUsername() bool`
 
 HasUsername returns a boolean if a field has been set.
+
+### GetEndpoint
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetEndpoint() string`
+
+GetEndpoint returns the Endpoint field if non-nil, zero value otherwise.
+
+### GetEndpointOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetEndpointOk() (*string, bool)`
+
+GetEndpointOk returns a tuple with the Endpoint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndpoint
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetEndpoint(v string)`
+
+SetEndpoint sets Endpoint field to given value.
+
+### HasEndpoint
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasEndpoint() bool`
+
+HasEndpoint returns a boolean if a field has been set.
+
+### GetAccessKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetAccessKey() string`
+
+GetAccessKey returns the AccessKey field if non-nil, zero value otherwise.
+
+### GetAccessKeyOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetAccessKeyOk() (*string, bool)`
+
+GetAccessKeyOk returns a tuple with the AccessKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetAccessKey(v string)`
+
+SetAccessKey sets AccessKey field to given value.
+
+### HasAccessKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasAccessKey() bool`
+
+HasAccessKey returns a boolean if a field has been set.
+
+### GetSecretKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetSecretKey() string`
+
+GetSecretKey returns the SecretKey field if non-nil, zero value otherwise.
+
+### GetSecretKeyOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetSecretKeyOk() (*string, bool)`
+
+GetSecretKeyOk returns a tuple with the SecretKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecretKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetSecretKey(v string)`
+
+SetSecretKey sets SecretKey field to given value.
+
+### HasSecretKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasSecretKey() bool`
+
+HasSecretKey returns a boolean if a field has been set.
+
+### GetUseHostCredentials
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetUseHostCredentials() string`
+
+GetUseHostCredentials returns the UseHostCredentials field if non-nil, zero value otherwise.
+
+### GetUseHostCredentialsOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetUseHostCredentialsOk() (*string, bool)`
+
+GetUseHostCredentialsOk returns a tuple with the UseHostCredentials field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUseHostCredentials
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetUseHostCredentials(v string)`
+
+SetUseHostCredentials sets UseHostCredentials field to given value.
+
+### HasUseHostCredentials
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasUseHostCredentials() bool`
+
+HasUseHostCredentials returns a boolean if a field has been set.
+
+### GetStsAssumeRole
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetStsAssumeRole() string`
+
+GetStsAssumeRole returns the StsAssumeRole field if non-nil, zero value otherwise.
+
+### GetStsAssumeRoleOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetStsAssumeRoleOk() (*string, bool)`
+
+GetStsAssumeRoleOk returns a tuple with the StsAssumeRole field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStsAssumeRole
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetStsAssumeRole(v string)`
+
+SetStsAssumeRole sets StsAssumeRole field to given value.
+
+### HasStsAssumeRole
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasStsAssumeRole() bool`
+
+HasStsAssumeRole returns a boolean if a field has been set.
+
+### GetIsVpc
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetIsVpc() string`
+
+GetIsVpc returns the IsVpc field if non-nil, zero value otherwise.
+
+### GetIsVpcOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetIsVpcOk() (*string, bool)`
+
+GetIsVpcOk returns a tuple with the IsVpc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsVpc
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetIsVpc(v string)`
+
+SetIsVpc sets IsVpc field to given value.
+
+### HasIsVpc
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasIsVpc() bool`
+
+HasIsVpc returns a boolean if a field has been set.
+
+### GetVpc
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetVpc() string`
+
+GetVpc returns the Vpc field if non-nil, zero value otherwise.
+
+### GetVpcOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetVpcOk() (*string, bool)`
+
+GetVpcOk returns a tuple with the Vpc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVpc
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetVpc(v string)`
+
+SetVpc sets Vpc field to given value.
+
+### HasVpc
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasVpc() bool`
+
+HasVpc returns a boolean if a field has been set.
+
+### GetImageStoreId
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetImageStoreId() string`
+
+GetImageStoreId returns the ImageStoreId field if non-nil, zero value otherwise.
+
+### GetImageStoreIdOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetImageStoreIdOk() (*string, bool)`
+
+GetImageStoreIdOk returns a tuple with the ImageStoreId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImageStoreId
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetImageStoreId(v string)`
+
+SetImageStoreId sets ImageStoreId field to given value.
+
+### HasImageStoreId
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasImageStoreId() bool`
+
+HasImageStoreId returns a boolean if a field has been set.
+
+### GetEbsEncryption
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetEbsEncryption() string`
+
+GetEbsEncryption returns the EbsEncryption field if non-nil, zero value otherwise.
+
+### GetEbsEncryptionOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetEbsEncryptionOk() (*string, bool)`
+
+GetEbsEncryptionOk returns a tuple with the EbsEncryption field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEbsEncryption
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetEbsEncryption(v string)`
+
+SetEbsEncryption sets EbsEncryption field to given value.
+
+### HasEbsEncryption
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasEbsEncryption() bool`
+
+HasEbsEncryption returns a boolean if a field has been set.
+
+### GetCostingReport
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingReport() string`
+
+GetCostingReport returns the CostingReport field if non-nil, zero value otherwise.
+
+### GetCostingReportOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingReportOk() (*string, bool)`
+
+GetCostingReportOk returns a tuple with the CostingReport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostingReport
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetCostingReport(v string)`
+
+SetCostingReport sets CostingReport field to given value.
+
+### HasCostingReport
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasCostingReport() bool`
+
+HasCostingReport returns a boolean if a field has been set.
+
+### GetCostingFolder
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingFolder() string`
+
+GetCostingFolder returns the CostingFolder field if non-nil, zero value otherwise.
+
+### GetCostingFolderOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingFolderOk() (*string, bool)`
+
+GetCostingFolderOk returns a tuple with the CostingFolder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostingFolder
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetCostingFolder(v string)`
+
+SetCostingFolder sets CostingFolder field to given value.
+
+### HasCostingFolder
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasCostingFolder() bool`
+
+HasCostingFolder returns a boolean if a field has been set.
+
+### GetCostingBucket
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingBucket() string`
+
+GetCostingBucket returns the CostingBucket field if non-nil, zero value otherwise.
+
+### GetCostingBucketOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingBucketOk() (*string, bool)`
+
+GetCostingBucketOk returns a tuple with the CostingBucket field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostingBucket
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetCostingBucket(v string)`
+
+SetCostingBucket sets CostingBucket field to given value.
+
+### HasCostingBucket
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasCostingBucket() bool`
+
+HasCostingBucket returns a boolean if a field has been set.
+
+### GetCostingBucketName
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingBucketName() string`
+
+GetCostingBucketName returns the CostingBucketName field if non-nil, zero value otherwise.
+
+### GetCostingBucketNameOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingBucketNameOk() (*string, bool)`
+
+GetCostingBucketNameOk returns a tuple with the CostingBucketName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostingBucketName
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetCostingBucketName(v string)`
+
+SetCostingBucketName sets CostingBucketName field to given value.
+
+### HasCostingBucketName
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasCostingBucketName() bool`
+
+HasCostingBucketName returns a boolean if a field has been set.
+
+### GetCostingRegion
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingRegion() string`
+
+GetCostingRegion returns the CostingRegion field if non-nil, zero value otherwise.
+
+### GetCostingRegionOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingRegionOk() (*string, bool)`
+
+GetCostingRegionOk returns a tuple with the CostingRegion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostingRegion
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetCostingRegion(v string)`
+
+SetCostingRegion sets CostingRegion field to given value.
+
+### HasCostingRegion
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasCostingRegion() bool`
+
+HasCostingRegion returns a boolean if a field has been set.
+
+### GetCostingAccessKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingAccessKey() string`
+
+GetCostingAccessKey returns the CostingAccessKey field if non-nil, zero value otherwise.
+
+### GetCostingAccessKeyOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingAccessKeyOk() (*string, bool)`
+
+GetCostingAccessKeyOk returns a tuple with the CostingAccessKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostingAccessKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetCostingAccessKey(v string)`
+
+SetCostingAccessKey sets CostingAccessKey field to given value.
+
+### HasCostingAccessKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasCostingAccessKey() bool`
+
+HasCostingAccessKey returns a boolean if a field has been set.
+
+### GetCostingSecretKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingSecretKey() string`
+
+GetCostingSecretKey returns the CostingSecretKey field if non-nil, zero value otherwise.
+
+### GetCostingSecretKeyOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingSecretKeyOk() (*string, bool)`
+
+GetCostingSecretKeyOk returns a tuple with the CostingSecretKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostingSecretKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetCostingSecretKey(v string)`
+
+SetCostingSecretKey sets CostingSecretKey field to given value.
+
+### HasCostingSecretKey
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasCostingSecretKey() bool`
+
+HasCostingSecretKey returns a boolean if a field has been set.
+
+### GetCostingReportName
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingReportName() string`
+
+GetCostingReportName returns the CostingReportName field if non-nil, zero value otherwise.
+
+### GetCostingReportNameOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingReportNameOk() (*string, bool)`
+
+GetCostingReportNameOk returns a tuple with the CostingReportName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostingReportName
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetCostingReportName(v string)`
+
+SetCostingReportName sets CostingReportName field to given value.
+
+### HasCostingReportName
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasCostingReportName() bool`
+
+HasCostingReportName returns a boolean if a field has been set.
+
+### GetSecretKeyHash
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetSecretKeyHash() string`
+
+GetSecretKeyHash returns the SecretKeyHash field if non-nil, zero value otherwise.
+
+### GetSecretKeyHashOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetSecretKeyHashOk() (*string, bool)`
+
+GetSecretKeyHashOk returns a tuple with the SecretKeyHash field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecretKeyHash
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetSecretKeyHash(v string)`
+
+SetSecretKeyHash sets SecretKeyHash field to given value.
+
+### HasSecretKeyHash
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasSecretKeyHash() bool`
+
+HasSecretKeyHash returns a boolean if a field has been set.
+
+### GetCostingSecretKeyHash
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingSecretKeyHash() string`
+
+GetCostingSecretKeyHash returns the CostingSecretKeyHash field if non-nil, zero value otherwise.
+
+### GetCostingSecretKeyHashOk
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) GetCostingSecretKeyHashOk() (*string, bool)`
+
+GetCostingSecretKeyHashOk returns a tuple with the CostingSecretKeyHash field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostingSecretKeyHash
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) SetCostingSecretKeyHash(v string)`
+
+SetCostingSecretKeyHash sets CostingSecretKeyHash field to given value.
+
+### HasCostingSecretKeyHash
+
+`func (o *AddClouds200ResponseAllOfZoneConfig) HasCostingSecretKeyHash() bool`
+
+HasCostingSecretKeyHash returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
