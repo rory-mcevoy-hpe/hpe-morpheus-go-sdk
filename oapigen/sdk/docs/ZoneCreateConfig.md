@@ -17,6 +17,10 @@ Name | Type | Description | Notes
 **StsAssumeRole** | Pointer to **string** | The AWS IAM role ARN to assume for authentication | [optional] 
 **ConfigManagementId** | Pointer to **string** | The id of the configuration management integration associated with the vSphere cloud. | [optional] 
 **Vpc** | Pointer to **string** | The VPC ID for a specific VPC | [optional] 
+**VdiGateway** | Pointer to **string** | The VDI gateway for this cloud to use for provisioning virtual desktops. | [optional] 
+**CmdbConfig** | Pointer to **string** | The CMDB configuration for this cloud to use for syncing with the CMDB. | [optional] 
+**ChangeManagementConfig** | Pointer to **string** | The change management configuration for this cloud to use for syncing with the change management system. | [optional] 
+**NetworkMode** | Pointer to **string** | Whether to use public or private IP addresses for provisioning and managing instances in this cloud. | [optional] 
 **SubscriberId** | Pointer to **string** | Azure subscriber id | [optional] 
 **TenantId** | Pointer to **string** | Azure tenant id | [optional] 
 **ClientId** | Pointer to **string** | Azure client id | [optional] 
@@ -376,6 +380,106 @@ SetVpc sets Vpc field to given value.
 `func (o *ZoneCreateConfig) HasVpc() bool`
 
 HasVpc returns a boolean if a field has been set.
+
+### GetVdiGateway
+
+`func (o *ZoneCreateConfig) GetVdiGateway() string`
+
+GetVdiGateway returns the VdiGateway field if non-nil, zero value otherwise.
+
+### GetVdiGatewayOk
+
+`func (o *ZoneCreateConfig) GetVdiGatewayOk() (*string, bool)`
+
+GetVdiGatewayOk returns a tuple with the VdiGateway field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVdiGateway
+
+`func (o *ZoneCreateConfig) SetVdiGateway(v string)`
+
+SetVdiGateway sets VdiGateway field to given value.
+
+### HasVdiGateway
+
+`func (o *ZoneCreateConfig) HasVdiGateway() bool`
+
+HasVdiGateway returns a boolean if a field has been set.
+
+### GetCmdbConfig
+
+`func (o *ZoneCreateConfig) GetCmdbConfig() string`
+
+GetCmdbConfig returns the CmdbConfig field if non-nil, zero value otherwise.
+
+### GetCmdbConfigOk
+
+`func (o *ZoneCreateConfig) GetCmdbConfigOk() (*string, bool)`
+
+GetCmdbConfigOk returns a tuple with the CmdbConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCmdbConfig
+
+`func (o *ZoneCreateConfig) SetCmdbConfig(v string)`
+
+SetCmdbConfig sets CmdbConfig field to given value.
+
+### HasCmdbConfig
+
+`func (o *ZoneCreateConfig) HasCmdbConfig() bool`
+
+HasCmdbConfig returns a boolean if a field has been set.
+
+### GetChangeManagementConfig
+
+`func (o *ZoneCreateConfig) GetChangeManagementConfig() string`
+
+GetChangeManagementConfig returns the ChangeManagementConfig field if non-nil, zero value otherwise.
+
+### GetChangeManagementConfigOk
+
+`func (o *ZoneCreateConfig) GetChangeManagementConfigOk() (*string, bool)`
+
+GetChangeManagementConfigOk returns a tuple with the ChangeManagementConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChangeManagementConfig
+
+`func (o *ZoneCreateConfig) SetChangeManagementConfig(v string)`
+
+SetChangeManagementConfig sets ChangeManagementConfig field to given value.
+
+### HasChangeManagementConfig
+
+`func (o *ZoneCreateConfig) HasChangeManagementConfig() bool`
+
+HasChangeManagementConfig returns a boolean if a field has been set.
+
+### GetNetworkMode
+
+`func (o *ZoneCreateConfig) GetNetworkMode() string`
+
+GetNetworkMode returns the NetworkMode field if non-nil, zero value otherwise.
+
+### GetNetworkModeOk
+
+`func (o *ZoneCreateConfig) GetNetworkModeOk() (*string, bool)`
+
+GetNetworkModeOk returns a tuple with the NetworkMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkMode
+
+`func (o *ZoneCreateConfig) SetNetworkMode(v string)`
+
+SetNetworkMode sets NetworkMode field to given value.
+
+### HasNetworkMode
+
+`func (o *ZoneCreateConfig) HasNetworkMode() bool`
+
+HasNetworkMode returns a boolean if a field has been set.
 
 ### GetSubscriberId
 

@@ -17,6 +17,10 @@ Name | Type | Description | Notes
 **StsAssumeRole** | Pointer to **string** | The AWS IAM role ARN to assume for authentication | [optional] 
 **ConfigManagementId** | Pointer to **string** | The id of the configuration management integration associated with the AWS cloud | [optional] 
 **Vpc** | Pointer to **string** | The VPC ID for a specific VPC | [optional] 
+**VdiGateway** | Pointer to **string** | The VDI gateway for this cloud to use for provisioning virtual desktops. | [optional] 
+**CmdbConfig** | Pointer to **string** | The CMDB configuration for this cloud to use for syncing with the CMDB. | [optional] 
+**ChangeManagementConfig** | Pointer to **string** | The change management configuration for this cloud to use for syncing with the change management system. | [optional] 
+**NetworkMode** | Pointer to **NullableString** | Whether to use public or private IP addresses for provisioning and managing instances in this cloud. | [optional] 
 
 ## Methods
 
@@ -367,6 +371,116 @@ SetVpc sets Vpc field to given value.
 
 HasVpc returns a boolean if a field has been set.
 
+### GetVdiGateway
+
+`func (o *CloudCreateConfigAWS) GetVdiGateway() string`
+
+GetVdiGateway returns the VdiGateway field if non-nil, zero value otherwise.
+
+### GetVdiGatewayOk
+
+`func (o *CloudCreateConfigAWS) GetVdiGatewayOk() (*string, bool)`
+
+GetVdiGatewayOk returns a tuple with the VdiGateway field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVdiGateway
+
+`func (o *CloudCreateConfigAWS) SetVdiGateway(v string)`
+
+SetVdiGateway sets VdiGateway field to given value.
+
+### HasVdiGateway
+
+`func (o *CloudCreateConfigAWS) HasVdiGateway() bool`
+
+HasVdiGateway returns a boolean if a field has been set.
+
+### GetCmdbConfig
+
+`func (o *CloudCreateConfigAWS) GetCmdbConfig() string`
+
+GetCmdbConfig returns the CmdbConfig field if non-nil, zero value otherwise.
+
+### GetCmdbConfigOk
+
+`func (o *CloudCreateConfigAWS) GetCmdbConfigOk() (*string, bool)`
+
+GetCmdbConfigOk returns a tuple with the CmdbConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCmdbConfig
+
+`func (o *CloudCreateConfigAWS) SetCmdbConfig(v string)`
+
+SetCmdbConfig sets CmdbConfig field to given value.
+
+### HasCmdbConfig
+
+`func (o *CloudCreateConfigAWS) HasCmdbConfig() bool`
+
+HasCmdbConfig returns a boolean if a field has been set.
+
+### GetChangeManagementConfig
+
+`func (o *CloudCreateConfigAWS) GetChangeManagementConfig() string`
+
+GetChangeManagementConfig returns the ChangeManagementConfig field if non-nil, zero value otherwise.
+
+### GetChangeManagementConfigOk
+
+`func (o *CloudCreateConfigAWS) GetChangeManagementConfigOk() (*string, bool)`
+
+GetChangeManagementConfigOk returns a tuple with the ChangeManagementConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChangeManagementConfig
+
+`func (o *CloudCreateConfigAWS) SetChangeManagementConfig(v string)`
+
+SetChangeManagementConfig sets ChangeManagementConfig field to given value.
+
+### HasChangeManagementConfig
+
+`func (o *CloudCreateConfigAWS) HasChangeManagementConfig() bool`
+
+HasChangeManagementConfig returns a boolean if a field has been set.
+
+### GetNetworkMode
+
+`func (o *CloudCreateConfigAWS) GetNetworkMode() string`
+
+GetNetworkMode returns the NetworkMode field if non-nil, zero value otherwise.
+
+### GetNetworkModeOk
+
+`func (o *CloudCreateConfigAWS) GetNetworkModeOk() (*string, bool)`
+
+GetNetworkModeOk returns a tuple with the NetworkMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkMode
+
+`func (o *CloudCreateConfigAWS) SetNetworkMode(v string)`
+
+SetNetworkMode sets NetworkMode field to given value.
+
+### HasNetworkMode
+
+`func (o *CloudCreateConfigAWS) HasNetworkMode() bool`
+
+HasNetworkMode returns a boolean if a field has been set.
+
+### SetNetworkModeNil
+
+`func (o *CloudCreateConfigAWS) SetNetworkModeNil(b bool)`
+
+ SetNetworkModeNil sets the value for NetworkMode to be an explicit nil
+
+### UnsetNetworkMode
+`func (o *CloudCreateConfigAWS) UnsetNetworkMode()`
+
+UnsetNetworkMode ensures that no value is present for NetworkMode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
