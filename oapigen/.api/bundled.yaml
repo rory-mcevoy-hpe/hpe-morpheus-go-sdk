@@ -4151,6 +4151,20 @@ paths:
                               type: string
                               description: The VPC ID for a specific VPC
                               example: vpc-25e6dae
+                            vdiGateway:
+                              type: string
+                              description: The VDI gateway for this cloud to use for provisioning virtual desktops.
+                            cmdbConfig:
+                              type: string
+                              description: The CMDB configuration for this cloud to use for syncing with the CMDB.
+                            changeManagementConfig:
+                              type: string
+                              description: The change management configuration for this cloud to use for syncing with the change management system.
+                            networkMode:
+                              type:
+                                - string
+                                - 'null'
+                              description: Whether to use public or private IP addresses for provisioning and managing instances in this cloud.
                         - description: Azure Cloud
                           type: object
                           properties: &ref_272
@@ -19299,6 +19313,11 @@ paths:
                   type: object
                   description: The map containing the id of the service plan you wish to apply to the containers in this instance.
                   properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 123
+                      description: The id of the instance to resize.
                     plan:
                       type: object
                       properties:
@@ -32044,29 +32063,6 @@ paths:
                           type: boolean
                           description: Set to 'true' if the server is pre-provisioned (brownfield)
                           example: false
-                        windowsOS:
-                          type: boolean
-                          description: Set to 'true' if preProvisioned is 'true' and the server has a Windows OS installed
-                          example: false
-                        osIpAddress:
-                          type: string
-                          description: The IP address of the OS installed on the server. Required if preProvisioned is 'true'.
-                          format: ipv4
-                          example: 192.168.1.1
-                        osUsername:
-                          type: string
-                          description: The username to access the OS installed on the server. Required if preProvisioned is 'true'.
-                          example: ''
-                        osPassword:
-                          type: string
-                          description: The password to access the OS installed on the server. Required if preProvisioned is 'true'.
-                          example: ''
-                        osSSHKeyId:
-                          type: integer
-                          description: |
-                            ID of the SSH Key Pair needed to access the OS installed on the server.
-                            Required if preProvisioned is 'true' and the OS is Linux and password authentication is disabled.
-                          example: 5
             examples:
               Host Request:
                 value:

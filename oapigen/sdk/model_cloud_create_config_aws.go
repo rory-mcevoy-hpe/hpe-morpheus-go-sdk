@@ -45,7 +45,15 @@ type CloudCreateConfigAWS struct {
 	// The id of the configuration management integration associated with the AWS cloud
 	ConfigManagementId *string `json:"configManagementId,omitempty"`
 	// The VPC ID for a specific VPC
-	Vpc                  *string                `json:"vpc,omitempty"`
+	Vpc *string `json:"vpc,omitempty"`
+	// The VDI gateway for this cloud to use for provisioning virtual desktops.
+	VdiGateway *string `json:"vdiGateway,omitempty"`
+	// The CMDB configuration for this cloud to use for syncing with the CMDB.
+	CmdbConfig *string `json:"cmdbConfig,omitempty"`
+	// The change management configuration for this cloud to use for syncing with the change management system.
+	ChangeManagementConfig *string `json:"changeManagementConfig,omitempty"`
+	// Whether to use public or private IP addresses for provisioning and managing instances in this cloud.
+	NetworkMode          NullableString         `json:"networkMode,omitempty"`
 	AdditionalProperties map[string]interface{} `json:",remain"`
 }
 
@@ -496,6 +504,145 @@ func (o *CloudCreateConfigAWS) SetVpc(v string) {
 	o.Vpc = &v
 }
 
+// GetVdiGateway returns the VdiGateway field value if set, zero value otherwise.
+func (o *CloudCreateConfigAWS) GetVdiGateway() string {
+	if o == nil || IsNil(o.VdiGateway) {
+		var ret string
+		return ret
+	}
+	return *o.VdiGateway
+}
+
+// GetVdiGatewayOk returns a tuple with the VdiGateway field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudCreateConfigAWS) GetVdiGatewayOk() (*string, bool) {
+	if o == nil || IsNil(o.VdiGateway) {
+		return nil, false
+	}
+	return o.VdiGateway, true
+}
+
+// IsSetVdiGateway returns a boolean if a field has been set.
+func (o *CloudCreateConfigAWS) IsSetVdiGateway() bool {
+	if o != nil && !IsNil(o.VdiGateway) {
+		return true
+	}
+
+	return false
+}
+
+// SetVdiGateway gets a reference to the given string and assigns it to the VdiGateway field.
+func (o *CloudCreateConfigAWS) SetVdiGateway(v string) {
+	o.VdiGateway = &v
+}
+
+// GetCmdbConfig returns the CmdbConfig field value if set, zero value otherwise.
+func (o *CloudCreateConfigAWS) GetCmdbConfig() string {
+	if o == nil || IsNil(o.CmdbConfig) {
+		var ret string
+		return ret
+	}
+	return *o.CmdbConfig
+}
+
+// GetCmdbConfigOk returns a tuple with the CmdbConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudCreateConfigAWS) GetCmdbConfigOk() (*string, bool) {
+	if o == nil || IsNil(o.CmdbConfig) {
+		return nil, false
+	}
+	return o.CmdbConfig, true
+}
+
+// IsSetCmdbConfig returns a boolean if a field has been set.
+func (o *CloudCreateConfigAWS) IsSetCmdbConfig() bool {
+	if o != nil && !IsNil(o.CmdbConfig) {
+		return true
+	}
+
+	return false
+}
+
+// SetCmdbConfig gets a reference to the given string and assigns it to the CmdbConfig field.
+func (o *CloudCreateConfigAWS) SetCmdbConfig(v string) {
+	o.CmdbConfig = &v
+}
+
+// GetChangeManagementConfig returns the ChangeManagementConfig field value if set, zero value otherwise.
+func (o *CloudCreateConfigAWS) GetChangeManagementConfig() string {
+	if o == nil || IsNil(o.ChangeManagementConfig) {
+		var ret string
+		return ret
+	}
+	return *o.ChangeManagementConfig
+}
+
+// GetChangeManagementConfigOk returns a tuple with the ChangeManagementConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudCreateConfigAWS) GetChangeManagementConfigOk() (*string, bool) {
+	if o == nil || IsNil(o.ChangeManagementConfig) {
+		return nil, false
+	}
+	return o.ChangeManagementConfig, true
+}
+
+// IsSetChangeManagementConfig returns a boolean if a field has been set.
+func (o *CloudCreateConfigAWS) IsSetChangeManagementConfig() bool {
+	if o != nil && !IsNil(o.ChangeManagementConfig) {
+		return true
+	}
+
+	return false
+}
+
+// SetChangeManagementConfig gets a reference to the given string and assigns it to the ChangeManagementConfig field.
+func (o *CloudCreateConfigAWS) SetChangeManagementConfig(v string) {
+	o.ChangeManagementConfig = &v
+}
+
+// GetNetworkMode returns the NetworkMode field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CloudCreateConfigAWS) GetNetworkMode() string {
+	if o == nil || IsNil(o.NetworkMode.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.NetworkMode.Get()
+}
+
+// GetNetworkModeOk returns a tuple with the NetworkMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CloudCreateConfigAWS) GetNetworkModeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NetworkMode.Get(), o.NetworkMode.IsSet()
+}
+
+// IsSetNetworkMode returns a boolean if a field has been set.
+func (o *CloudCreateConfigAWS) IsSetNetworkMode() bool {
+	if o != nil && o.NetworkMode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkMode gets a reference to the given NullableString and assigns it to the NetworkMode field.
+func (o *CloudCreateConfigAWS) SetNetworkMode(v string) {
+	o.NetworkMode.Set(&v)
+}
+
+// SetNetworkModeNil sets the value for NetworkMode to be an explicit nil
+func (o *CloudCreateConfigAWS) SetNetworkModeNil() {
+	o.NetworkMode.Set(nil)
+}
+
+// UnsetNetworkMode ensures that no value is present for NetworkMode, not even an explicit nil
+func (o *CloudCreateConfigAWS) UnsetNetworkMode() {
+	o.NetworkMode.Unset()
+}
+
 func (o CloudCreateConfigAWS) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -542,6 +689,18 @@ func (o CloudCreateConfigAWS) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Vpc) {
 		toSerialize["vpc"] = o.Vpc
+	}
+	if !IsNil(o.VdiGateway) {
+		toSerialize["vdiGateway"] = o.VdiGateway
+	}
+	if !IsNil(o.CmdbConfig) {
+		toSerialize["cmdbConfig"] = o.CmdbConfig
+	}
+	if !IsNil(o.ChangeManagementConfig) {
+		toSerialize["changeManagementConfig"] = o.ChangeManagementConfig
+	}
+	if o.NetworkMode.IsSet() {
+		toSerialize["networkMode"] = o.NetworkMode.Get()
 	}
 
 	for key, value := range o.AdditionalProperties {
